@@ -126,14 +126,15 @@ struct HomeView: View {
    
                         // List Of Genres...
                         ForEach(generes,id: \.self){genre in
-                            
-                            Text(genre)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.black)
-                                .padding(.vertical,8)
-                                .frame(maxWidth: .infinity)
-                                .background(Color.black.opacity(0.06))
-                                .clipShape(Capsule())
+                            Button(action: {}, label: {
+                                Text(genre)
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.black)
+                                    .padding(.vertical,8)
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.black.opacity(0.06))
+                                    .clipShape(Capsule())
+                                })
                         }
                     })
                     .padding(.top,20)
