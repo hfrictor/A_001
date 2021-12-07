@@ -11,7 +11,7 @@ import SwiftUI
 struct ArcticFoxAudioApp: App {
     var body: some Scene {
         WindowGroup {
-            SignInView()
+            HomeView()
         }
     }
 }
