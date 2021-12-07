@@ -7,13 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		044080A9C3FB1BAB8C3F7A30 /* Pods_ArcticFoxAudio_ArcticFoxAudioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5480BEBAA7607050F910840 /* Pods_ArcticFoxAudio_ArcticFoxAudioUITests.framework */; };
 		7184FBD4275EDD7B0090D15A /* ArcticFoxAudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBD3275EDD7B0090D15A /* ArcticFoxAudioApp.swift */; };
-		7184FBD6275EDD7B0090D15A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBD5275EDD7B0090D15A /* ContentView.swift */; };
 		7184FBD8275EDD7C0090D15A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7184FBD7275EDD7C0090D15A /* Assets.xcassets */; };
 		7184FBDB275EDD7C0090D15A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7184FBDA275EDD7C0090D15A /* Preview Assets.xcassets */; };
 		7184FBE5275EDD7C0090D15A /* ArcticFoxAudioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBE4275EDD7C0090D15A /* ArcticFoxAudioTests.swift */; };
 		7184FBEF275EDD7D0090D15A /* ArcticFoxAudioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBEE275EDD7D0090D15A /* ArcticFoxAudioUITests.swift */; };
 		7184FBF1275EDD7D0090D15A /* ArcticFoxAudioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBF0275EDD7D0090D15A /* ArcticFoxAudioUITestsLaunchTests.swift */; };
+		7184FBFE275EE3FA0090D15A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBFD275EE3FA0090D15A /* SignInView.swift */; };
+		7184FC00275EE40A0090D15A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBFF275EE40A0090D15A /* LoginView.swift */; };
+		7184FC02275EE44C0090D15A /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC01275EE44C0090D15A /* ForgotPasswordView.swift */; };
+		7184FC04275EE4780090D15A /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC03275EE4780090D15A /* OnboardingView.swift */; };
+		7184FC06275EE48F0090D15A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC05275EE48F0090D15A /* HomeView.swift */; };
+		7184FC08275EE4AC0090D15A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC07275EE4AC0090D15A /* SettingsView.swift */; };
+		7184FC0A275EE4D60090D15A /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC09275EE4D60090D15A /* AccountView.swift */; };
+		7184FC0C275EE5190090D15A /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC0B275EE5190090D15A /* BookView.swift */; };
+		7184FC0E275EE5300090D15A /* ChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC0D275EE5300090D15A /* ChapterView.swift */; };
+		7184FC10275EE5450090D15A /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC0F275EE5450090D15A /* PlayerView.swift */; };
+		BFDD3B1F83D8B2E58F4FD02F /* Pods_ArcticFoxAudioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 018FE72AFAE9B26E552EF269 /* Pods_ArcticFoxAudioTests.framework */; };
+		D23986A4E54FDF21CE25906A /* Pods_ArcticFoxAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB32AF9D7D8FCA5DFA27E904 /* Pods_ArcticFoxAudio.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		018FE72AFAE9B26E552EF269 /* Pods_ArcticFoxAudioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArcticFoxAudioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0728ED56F52D6F242782780B /* Pods-ArcticFoxAudio-ArcticFoxAudioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArcticFoxAudio-ArcticFoxAudioUITests.debug.xcconfig"; path = "Target Support Files/Pods-ArcticFoxAudio-ArcticFoxAudioUITests/Pods-ArcticFoxAudio-ArcticFoxAudioUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		23395E8C0B71233B8D1D1359 /* Pods-ArcticFoxAudioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArcticFoxAudioTests.release.xcconfig"; path = "Target Support Files/Pods-ArcticFoxAudioTests/Pods-ArcticFoxAudioTests.release.xcconfig"; sourceTree = "<group>"; };
+		267511BE17A8E9228998CC2F /* Pods-ArcticFoxAudio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArcticFoxAudio.release.xcconfig"; path = "Target Support Files/Pods-ArcticFoxAudio/Pods-ArcticFoxAudio.release.xcconfig"; sourceTree = "<group>"; };
 		7184FBD0275EDD7B0090D15A /* ArcticFoxAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArcticFoxAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7184FBD3275EDD7B0090D15A /* ArcticFoxAudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticFoxAudioApp.swift; sourceTree = "<group>"; };
-		7184FBD5275EDD7B0090D15A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7184FBD7275EDD7C0090D15A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7184FBDA275EDD7C0090D15A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7184FBE0275EDD7C0090D15A /* ArcticFoxAudioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArcticFoxAudioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +59,21 @@
 		7184FBEA275EDD7D0090D15A /* ArcticFoxAudioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArcticFoxAudioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7184FBEE275EDD7D0090D15A /* ArcticFoxAudioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticFoxAudioUITests.swift; sourceTree = "<group>"; };
 		7184FBF0275EDD7D0090D15A /* ArcticFoxAudioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticFoxAudioUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7184FBFD275EE3FA0090D15A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		7184FBFF275EE40A0090D15A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		7184FC01275EE44C0090D15A /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		7184FC03275EE4780090D15A /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		7184FC05275EE48F0090D15A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7184FC07275EE4AC0090D15A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		7184FC09275EE4D60090D15A /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		7184FC0B275EE5190090D15A /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
+		7184FC0D275EE5300090D15A /* ChapterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterView.swift; sourceTree = "<group>"; };
+		7184FC0F275EE5450090D15A /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		864162374BD0DEA82DB4470F /* Pods-ArcticFoxAudioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArcticFoxAudioTests.debug.xcconfig"; path = "Target Support Files/Pods-ArcticFoxAudioTests/Pods-ArcticFoxAudioTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B5480BEBAA7607050F910840 /* Pods_ArcticFoxAudio_ArcticFoxAudioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArcticFoxAudio_ArcticFoxAudioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC069CA4909B6EEB6FF70D40 /* Pods-ArcticFoxAudio-ArcticFoxAudioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArcticFoxAudio-ArcticFoxAudioUITests.release.xcconfig"; path = "Target Support Files/Pods-ArcticFoxAudio-ArcticFoxAudioUITests/Pods-ArcticFoxAudio-ArcticFoxAudioUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EB32AF9D7D8FCA5DFA27E904 /* Pods_ArcticFoxAudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArcticFoxAudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC87FB88CABEE0DB8658118E /* Pods-ArcticFoxAudio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArcticFoxAudio.debug.xcconfig"; path = "Target Support Files/Pods-ArcticFoxAudio/Pods-ArcticFoxAudio.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D23986A4E54FDF21CE25906A /* Pods_ArcticFoxAudio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFDD3B1F83D8B2E58F4FD02F /* Pods_ArcticFoxAudioTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,12 +97,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044080A9C3FB1BAB8C3F7A30 /* Pods_ArcticFoxAudio_ArcticFoxAudioUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F7E66F7064A35279059C1E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB32AF9D7D8FCA5DFA27E904 /* Pods_ArcticFoxAudio.framework */,
+				B5480BEBAA7607050F910840 /* Pods_ArcticFoxAudio_ArcticFoxAudioUITests.framework */,
+				018FE72AFAE9B26E552EF269 /* Pods_ArcticFoxAudioTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7184FBC7275EDD7B0090D15A = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +121,8 @@
 				7184FBE3275EDD7C0090D15A /* ArcticFoxAudioTests */,
 				7184FBED275EDD7D0090D15A /* ArcticFoxAudioUITests */,
 				7184FBD1275EDD7B0090D15A /* Products */,
+				7248B8106088AE98E173CB75 /* Pods */,
+				1F7E66F7064A35279059C1E2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,8 +139,8 @@
 		7184FBD2275EDD7B0090D15A /* ArcticFoxAudio */ = {
 			isa = PBXGroup;
 			children = (
+				7184FC11275EE5710090D15A /* ContentViews */,
 				7184FBD3275EDD7B0090D15A /* ArcticFoxAudioApp.swift */,
-				7184FBD5275EDD7B0090D15A /* ContentView.swift */,
 				7184FBD7275EDD7C0090D15A /* Assets.xcassets */,
 				7184FBD9275EDD7C0090D15A /* Preview Content */,
 			);
@@ -127,6 +172,37 @@
 			path = ArcticFoxAudioUITests;
 			sourceTree = "<group>";
 		};
+		7184FC11275EE5710090D15A /* ContentViews */ = {
+			isa = PBXGroup;
+			children = (
+				7184FBFD275EE3FA0090D15A /* SignInView.swift */,
+				7184FBFF275EE40A0090D15A /* LoginView.swift */,
+				7184FC01275EE44C0090D15A /* ForgotPasswordView.swift */,
+				7184FC03275EE4780090D15A /* OnboardingView.swift */,
+				7184FC05275EE48F0090D15A /* HomeView.swift */,
+				7184FC07275EE4AC0090D15A /* SettingsView.swift */,
+				7184FC09275EE4D60090D15A /* AccountView.swift */,
+				7184FC0B275EE5190090D15A /* BookView.swift */,
+				7184FC0D275EE5300090D15A /* ChapterView.swift */,
+				7184FC0F275EE5450090D15A /* PlayerView.swift */,
+			);
+			path = ContentViews;
+			sourceTree = "<group>";
+		};
+		7248B8106088AE98E173CB75 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FC87FB88CABEE0DB8658118E /* Pods-ArcticFoxAudio.debug.xcconfig */,
+				267511BE17A8E9228998CC2F /* Pods-ArcticFoxAudio.release.xcconfig */,
+				0728ED56F52D6F242782780B /* Pods-ArcticFoxAudio-ArcticFoxAudioUITests.debug.xcconfig */,
+				BC069CA4909B6EEB6FF70D40 /* Pods-ArcticFoxAudio-ArcticFoxAudioUITests.release.xcconfig */,
+				864162374BD0DEA82DB4470F /* Pods-ArcticFoxAudioTests.debug.xcconfig */,
+				23395E8C0B71233B8D1D1359 /* Pods-ArcticFoxAudioTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,6 +210,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7184FBF4275EDD7D0090D15A /* Build configuration list for PBXNativeTarget "ArcticFoxAudio" */;
 			buildPhases = (
+				EB747B6CD5F13CDAF92D4ED1 /* [CP] Check Pods Manifest.lock */,
 				7184FBCC275EDD7B0090D15A /* Sources */,
 				7184FBCD275EDD7B0090D15A /* Frameworks */,
 				7184FBCE275EDD7B0090D15A /* Resources */,
@@ -151,6 +228,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7184FBF7275EDD7D0090D15A /* Build configuration list for PBXNativeTarget "ArcticFoxAudioTests" */;
 			buildPhases = (
+				4409078E1D1E233068C8E8C8 /* [CP] Check Pods Manifest.lock */,
 				7184FBDC275EDD7C0090D15A /* Sources */,
 				7184FBDD275EDD7C0090D15A /* Frameworks */,
 				7184FBDE275EDD7C0090D15A /* Resources */,
@@ -169,6 +247,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7184FBFA275EDD7D0090D15A /* Build configuration list for PBXNativeTarget "ArcticFoxAudioUITests" */;
 			buildPhases = (
+				33FE89B880E2527A16691B53 /* [CP] Check Pods Manifest.lock */,
 				7184FBE6275EDD7D0090D15A /* Sources */,
 				7184FBE7275EDD7D0090D15A /* Frameworks */,
 				7184FBE8275EDD7D0090D15A /* Resources */,
@@ -252,13 +331,91 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		33FE89B880E2527A16691B53 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ArcticFoxAudio-ArcticFoxAudioUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4409078E1D1E233068C8E8C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ArcticFoxAudioTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB747B6CD5F13CDAF92D4ED1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ArcticFoxAudio-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7184FBCC275EDD7B0090D15A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7184FBD6275EDD7B0090D15A /* ContentView.swift in Sources */,
+				7184FBFE275EE3FA0090D15A /* SignInView.swift in Sources */,
+				7184FC08275EE4AC0090D15A /* SettingsView.swift in Sources */,
+				7184FC06275EE48F0090D15A /* HomeView.swift in Sources */,
+				7184FC10275EE5450090D15A /* PlayerView.swift in Sources */,
+				7184FC00275EE40A0090D15A /* LoginView.swift in Sources */,
+				7184FC04275EE4780090D15A /* OnboardingView.swift in Sources */,
+				7184FC0E275EE5300090D15A /* ChapterView.swift in Sources */,
+				7184FC0A275EE4D60090D15A /* AccountView.swift in Sources */,
+				7184FC02275EE44C0090D15A /* ForgotPasswordView.swift in Sources */,
 				7184FBD4275EDD7B0090D15A /* ArcticFoxAudioApp.swift in Sources */,
+				7184FC0C275EE5190090D15A /* BookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +570,7 @@
 		};
 		7184FBF5275EDD7D0090D15A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC87FB88CABEE0DB8658118E /* Pods-ArcticFoxAudio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -442,6 +600,7 @@
 		};
 		7184FBF6275EDD7D0090D15A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 267511BE17A8E9228998CC2F /* Pods-ArcticFoxAudio.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -471,6 +630,7 @@
 		};
 		7184FBF8275EDD7D0090D15A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 864162374BD0DEA82DB4470F /* Pods-ArcticFoxAudioTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -496,6 +656,7 @@
 		};
 		7184FBF9275EDD7D0090D15A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23395E8C0B71233B8D1D1359 /* Pods-ArcticFoxAudioTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -521,6 +682,7 @@
 		};
 		7184FBFB275EDD7D0090D15A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0728ED56F52D6F242782780B /* Pods-ArcticFoxAudio-ArcticFoxAudioUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -544,6 +706,7 @@
 		};
 		7184FBFC275EDD7D0090D15A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC069CA4909B6EEB6FF70D40 /* Pods-ArcticFoxAudio-ArcticFoxAudioUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
