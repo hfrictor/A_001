@@ -14,7 +14,7 @@
 		7184FBE5275EDD7C0090D15A /* ArcticFoxAudioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBE4275EDD7C0090D15A /* ArcticFoxAudioTests.swift */; };
 		7184FBEF275EDD7D0090D15A /* ArcticFoxAudioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBEE275EDD7D0090D15A /* ArcticFoxAudioUITests.swift */; };
 		7184FBF1275EDD7D0090D15A /* ArcticFoxAudioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBF0275EDD7D0090D15A /* ArcticFoxAudioUITestsLaunchTests.swift */; };
-		7184FBFE275EE3FA0090D15A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBFD275EE3FA0090D15A /* SignInView.swift */; };
+		7184FBFE275EE3FA0090D15A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBFD275EE3FA0090D15A /* SignUpView.swift */; };
 		7184FC00275EE40A0090D15A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBFF275EE40A0090D15A /* LoginView.swift */; };
 		7184FC02275EE44C0090D15A /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC01275EE44C0090D15A /* ForgotPasswordView.swift */; };
 		7184FC04275EE4780090D15A /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC03275EE4780090D15A /* OnboardingView.swift */; };
@@ -61,7 +61,7 @@
 		7184FBEA275EDD7D0090D15A /* ArcticFoxAudioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArcticFoxAudioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7184FBEE275EDD7D0090D15A /* ArcticFoxAudioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticFoxAudioUITests.swift; sourceTree = "<group>"; };
 		7184FBF0275EDD7D0090D15A /* ArcticFoxAudioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticFoxAudioUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		7184FBFD275EE3FA0090D15A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		7184FBFD275EE3FA0090D15A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		7184FBFF275EE40A0090D15A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7184FC01275EE44C0090D15A /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		7184FC03275EE4780090D15A /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 		7184FC11275EE5710090D15A /* ContentViews */ = {
 			isa = PBXGroup;
 			children = (
-				7184FBFD275EE3FA0090D15A /* SignInView.swift */,
+				7184FBFD275EE3FA0090D15A /* SignUpView.swift */,
 				7184FBFF275EE40A0090D15A /* LoginView.swift */,
 				7184FC01275EE44C0090D15A /* ForgotPasswordView.swift */,
 				7184FC03275EE4780090D15A /* OnboardingView.swift */,
@@ -418,7 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7184FBFE275EE3FA0090D15A /* SignInView.swift in Sources */,
+				7184FBFE275EE3FA0090D15A /* SignUpView.swift in Sources */,
 				7184FC08275EE4AC0090D15A /* SettingsView.swift in Sources */,
 				7184FC06275EE48F0090D15A /* HomeView.swift in Sources */,
 				7184FC10275EE5450090D15A /* PlayerView.swift in Sources */,
