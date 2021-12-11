@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		044080A9C3FB1BAB8C3F7A30 /* Pods_ArcticFoxAudio_ArcticFoxAudioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5480BEBAA7607050F910840 /* Pods_ArcticFoxAudio_ArcticFoxAudioUITests.framework */; };
 		716464A6276193EB007F4D45 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464A5276193EB007F4D45 /* Tab.swift */; };
+		716464AB27655114007F4D45 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 716464AA27655114007F4D45 /* splash.json */; };
 		7184FBD4275EDD7B0090D15A /* ArcticFoxAudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBD3275EDD7B0090D15A /* ArcticFoxAudioApp.swift */; };
 		7184FBD8275EDD7C0090D15A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7184FBD7275EDD7C0090D15A /* Assets.xcassets */; };
 		7184FBDB275EDD7C0090D15A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7184FBDA275EDD7C0090D15A /* Preview Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		23395E8C0B71233B8D1D1359 /* Pods-ArcticFoxAudioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArcticFoxAudioTests.release.xcconfig"; path = "Target Support Files/Pods-ArcticFoxAudioTests/Pods-ArcticFoxAudioTests.release.xcconfig"; sourceTree = "<group>"; };
 		267511BE17A8E9228998CC2F /* Pods-ArcticFoxAudio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArcticFoxAudio.release.xcconfig"; path = "Target Support Files/Pods-ArcticFoxAudio/Pods-ArcticFoxAudio.release.xcconfig"; sourceTree = "<group>"; };
 		716464A5276193EB007F4D45 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		716464AA27655114007F4D45 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = splash.json; path = ../../../../splash.json; sourceTree = "<group>"; };
 		7184FBD0275EDD7B0090D15A /* ArcticFoxAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArcticFoxAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7184FBD3275EDD7B0090D15A /* ArcticFoxAudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticFoxAudioApp.swift; sourceTree = "<group>"; };
 		7184FBD7275EDD7C0090D15A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,6 +122,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		716464A727654908007F4D45 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				716464AA27655114007F4D45 /* splash.json */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		7184FBC7275EDD7B0090D15A = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +155,7 @@
 		7184FBD2275EDD7B0090D15A /* ArcticFoxAudio */ = {
 			isa = PBXGroup;
 			children = (
+				716464A727654908007F4D45 /* Helpers */,
 				7184FC14275F07420090D15A /* Model */,
 				7184FC11275EE5710090D15A /* ContentViews */,
 				7184FBD3275EDD7B0090D15A /* ArcticFoxAudioApp.swift */,
@@ -230,6 +241,7 @@
 				7184FBCC275EDD7B0090D15A /* Sources */,
 				7184FBCD275EDD7B0090D15A /* Frameworks */,
 				7184FBCE275EDD7B0090D15A /* Resources */,
+				1BCAFCB4329A9530DBF2B3F6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -267,6 +279,7 @@
 				7184FBE6275EDD7D0090D15A /* Sources */,
 				7184FBE7275EDD7D0090D15A /* Frameworks */,
 				7184FBE8275EDD7D0090D15A /* Resources */,
+				294016D20A18F697F7EC2B03 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -326,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				716464AB27655114007F4D45 /* splash.json in Resources */,
 				7184FBDB275EDD7C0090D15A /* Preview Assets.xcassets in Resources */,
 				7184FBD8275EDD7C0090D15A /* Assets.xcassets in Resources */,
 			);
@@ -348,6 +362,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1BCAFCB4329A9530DBF2B3F6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ArcticFoxAudio/Pods-ArcticFoxAudio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ArcticFoxAudio/Pods-ArcticFoxAudio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ArcticFoxAudio/Pods-ArcticFoxAudio-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		294016D20A18F697F7EC2B03 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ArcticFoxAudio-ArcticFoxAudioUITests/Pods-ArcticFoxAudio-ArcticFoxAudioUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ArcticFoxAudio-ArcticFoxAudioUITests/Pods-ArcticFoxAudio-ArcticFoxAudioUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ArcticFoxAudio-ArcticFoxAudioUITests/Pods-ArcticFoxAudio-ArcticFoxAudioUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		33FE89B880E2527A16691B53 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

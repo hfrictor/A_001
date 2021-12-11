@@ -12,7 +12,8 @@ struct ArcticFoxAudioApp: App {
     var body: some Scene {
         WindowGroup {
             //HomeView()
-            SignUpView()
+            //SignUpView()
+            LoginView()
         }
     }
 }
