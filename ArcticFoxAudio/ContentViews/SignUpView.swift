@@ -71,6 +71,7 @@ struct SplashScreen: View{
                     .ignoresSafeArea()
             }
         }
+        
         // avoiding dark twitter color...
         .preferredColorScheme(splashAnimation ? nil : .light)
         .onAppear {
