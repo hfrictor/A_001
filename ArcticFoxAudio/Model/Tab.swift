@@ -21,7 +21,7 @@ struct Tab: Identifiable{
 // Add more tabs for more intro screens....
 var tabs: [Tab] = [
 
-    Tab(title: "Plan", subTitle: "your routes", description: "View your collection route Follow, change or add to your route yourself", image: "Pic1",color: Color("Green")),
-    Tab(title: "Quick Waste", subTitle: "Transfer Note", description: "Record oil collections easily and accurately. No more paper!", image: "Pic2",color: Color("DarkGrey")),
-    Tab(title: "Invite", subTitle: "restaurants", description: "Know some restaurant who want to optimize oil collection? Invite them with one click", image: "Pic3",color: Color("Yellow")),
+    Tab(title: "Listen", subTitle: "for Free", description: "Listen to thousands of audiobooks from top authors all free of charge!", image: "Pic2",color: Color("Green")),
+    Tab(title: "Customize", subTitle: "Notes and Bookmarks", description: "Customize your eperience using Arctic Fox Audios propreitary listening features!", image: "Pic3",color: Color("DarkGrey")),
+    Tab(title: "", subTitle: "", description: "", image: "",color: Color("Yellow")),
 ]
