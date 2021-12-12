@@ -10,6 +10,8 @@ import SwiftUI
 struct SideTabView: View {
     // Storing Current Tab..
     @State var selectedTab = "house.fill"
+    @EnvironmentObject var globalProfile: GlobalProfile
+    
     
     // Volume...
     @State var volume: CGFloat = 0.4
@@ -36,6 +38,8 @@ struct SideTabView: View {
                 TabButton(image: "clock.fill", selectedTab: $selectedTab)
                 
                 TabButton(image: "gear", selectedTab: $selectedTab)
+            }.onAppear{
+                selectedTab = globalProfile.currentTab
             }
             // setting the tabs for half of the height so that remaining elements will get space....
             .frame(height: getRect().height / 2.3)
@@ -125,11 +129,13 @@ struct TabButton: View {
     
     var image: String
     @Binding var selectedTab: String
+    @EnvironmentObject var globalProfile: GlobalProfile
     
     var body: some View{
         
         Button(action: {
             withAnimation{selectedTab = image}
+            withAnimation{globalProfile.currentTab = selectedTab}
         }, label: {
             Image(systemName: image)
                 .font(.title)

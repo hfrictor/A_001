@@ -11,9 +11,11 @@ import SwiftUI
 struct ArcticFoxAudioApp: App {
     var body: some Scene {
         WindowGroup {
-            //HomeView()
-            //SignUpView()
-            LoginView()
+            
+            let globalProfile = GlobalProfile()
+            LoginView().navigationBarHidden(true)
+            .environmentObject(globalProfile)
+
         }
     }
 }

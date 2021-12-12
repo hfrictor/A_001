@@ -11,6 +11,10 @@
 		716464A6276193EB007F4D45 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464A5276193EB007F4D45 /* Tab.swift */; };
 		716464AB27655114007F4D45 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 716464AA27655114007F4D45 /* splash.json */; };
 		716464AD2765768A007F4D45 /* resetPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464AC2765768A007F4D45 /* resetPassView.swift */; };
+		716464AF2766B43A007F4D45 /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464AE2766B43A007F4D45 /* BrowseView.swift */; };
+		716464B22766B777007F4D45 /* GlobalProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464B12766B777007F4D45 /* GlobalProfile.swift */; };
+		716464B42766B786007F4D45 /* AuthProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464B32766B785007F4D45 /* AuthProfile.swift */; };
+		716464B62766BF68007F4D45 /* RecentlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464B52766BF68007F4D45 /* RecentlyView.swift */; };
 		7184FBD4275EDD7B0090D15A /* ArcticFoxAudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBD3275EDD7B0090D15A /* ArcticFoxAudioApp.swift */; };
 		7184FBD8275EDD7C0090D15A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7184FBD7275EDD7C0090D15A /* Assets.xcassets */; };
 		7184FBDB275EDD7C0090D15A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7184FBDA275EDD7C0090D15A /* Preview Assets.xcassets */; };
@@ -58,6 +62,10 @@
 		716464A5276193EB007F4D45 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		716464AA27655114007F4D45 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = splash.json; path = ../../../../splash.json; sourceTree = "<group>"; };
 		716464AC2765768A007F4D45 /* resetPassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resetPassView.swift; sourceTree = "<group>"; };
+		716464AE2766B43A007F4D45 /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
+		716464B12766B777007F4D45 /* GlobalProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalProfile.swift; sourceTree = "<group>"; };
+		716464B32766B785007F4D45 /* AuthProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProfile.swift; sourceTree = "<group>"; };
+		716464B52766BF68007F4D45 /* RecentlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyView.swift; sourceTree = "<group>"; };
 		7184FBD0275EDD7B0090D15A /* ArcticFoxAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArcticFoxAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7184FBD3275EDD7B0090D15A /* ArcticFoxAudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticFoxAudioApp.swift; sourceTree = "<group>"; };
 		7184FBD7275EDD7C0090D15A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,6 +140,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		716464B02766B751007F4D45 /* Globals */ = {
+			isa = PBXGroup;
+			children = (
+				716464B12766B777007F4D45 /* GlobalProfile.swift */,
+				716464B32766B785007F4D45 /* AuthProfile.swift */,
+			);
+			path = Globals;
+			sourceTree = "<group>";
+		};
 		7184FBC7275EDD7B0090D15A = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +174,7 @@
 		7184FBD2275EDD7B0090D15A /* ArcticFoxAudio */ = {
 			isa = PBXGroup;
 			children = (
+				716464B02766B751007F4D45 /* Globals */,
 				716464A727654908007F4D45 /* Helpers */,
 				7184FC14275F07420090D15A /* Model */,
 				7184FC11275EE5710090D15A /* ContentViews */,
@@ -207,6 +225,8 @@
 				7184FC0F275EE5450090D15A /* PlayerView.swift */,
 				7184FC12275F07140090D15A /* SideTabView.swift */,
 				716464AC2765768A007F4D45 /* resetPassView.swift */,
+				716464AE2766B43A007F4D45 /* BrowseView.swift */,
+				716464B52766BF68007F4D45 /* RecentlyView.swift */,
 			);
 			path = ContentViews;
 			sourceTree = "<group>";
@@ -475,11 +495,15 @@
 				7184FBFE275EE3FA0090D15A /* SignUpView.swift in Sources */,
 				7184FC08275EE4AC0090D15A /* SettingsView.swift in Sources */,
 				7184FC06275EE48F0090D15A /* HomeView.swift in Sources */,
+				716464B22766B777007F4D45 /* GlobalProfile.swift in Sources */,
 				7184FC10275EE5450090D15A /* PlayerView.swift in Sources */,
 				7184FC00275EE40A0090D15A /* LoginView.swift in Sources */,
 				7184FC04275EE4780090D15A /* OnboardingView.swift in Sources */,
+				716464B42766B786007F4D45 /* AuthProfile.swift in Sources */,
 				7184FC0E275EE5300090D15A /* ChapterView.swift in Sources */,
+				716464B62766BF68007F4D45 /* RecentlyView.swift in Sources */,
 				7184FC0A275EE4D60090D15A /* AccountView.swift in Sources */,
+				716464AF2766B43A007F4D45 /* BrowseView.swift in Sources */,
 				7184FC02275EE44C0090D15A /* ForgotPasswordView.swift in Sources */,
 				716464AD2765768A007F4D45 /* resetPassView.swift in Sources */,
 				7184FBD4275EDD7B0090D15A /* ArcticFoxAudioApp.swift in Sources */,
