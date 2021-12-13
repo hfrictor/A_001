@@ -12,7 +12,7 @@ struct BrowseView: View {
     @EnvironmentObject var globalProfile: GlobalProfile
     
     var body: some View {
-        Text("Browse (GNH)")
+        Text(globalProfile.clickedGenre)
             .font(.title)
             .fontWeight(.bold)
             .foregroundColor(.black)

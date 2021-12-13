@@ -15,6 +15,8 @@
 		716464B22766B777007F4D45 /* GlobalProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464B12766B777007F4D45 /* GlobalProfile.swift */; };
 		716464B42766B786007F4D45 /* AuthProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464B32766B785007F4D45 /* AuthProfile.swift */; };
 		716464B62766BF68007F4D45 /* RecentlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464B52766BF68007F4D45 /* RecentlyView.swift */; };
+		716464B82766CC44007F4D45 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464B72766CC44007F4D45 /* Download.swift */; };
+		716464BC2766CC6D007F4D45 /* BarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464BB2766CC6D007F4D45 /* BarGraph.swift */; };
 		7184FBD4275EDD7B0090D15A /* ArcticFoxAudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBD3275EDD7B0090D15A /* ArcticFoxAudioApp.swift */; };
 		7184FBD8275EDD7C0090D15A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7184FBD7275EDD7C0090D15A /* Assets.xcassets */; };
 		7184FBDB275EDD7C0090D15A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7184FBDA275EDD7C0090D15A /* Preview Assets.xcassets */; };
@@ -65,6 +67,8 @@
 		716464B12766B777007F4D45 /* GlobalProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalProfile.swift; sourceTree = "<group>"; };
 		716464B32766B785007F4D45 /* AuthProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProfile.swift; sourceTree = "<group>"; };
 		716464B52766BF68007F4D45 /* RecentlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyView.swift; sourceTree = "<group>"; };
+		716464B72766CC44007F4D45 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		716464BB2766CC6D007F4D45 /* BarGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarGraph.swift; sourceTree = "<group>"; };
 		7184FBD0275EDD7B0090D15A /* ArcticFoxAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArcticFoxAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7184FBD3275EDD7B0090D15A /* ArcticFoxAudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticFoxAudioApp.swift; sourceTree = "<group>"; };
 		7184FBD7275EDD7C0090D15A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				716464AA27655114007F4D45 /* splash.json */,
+				716464BB2766CC6D007F4D45 /* BarGraph.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 			children = (
 				7184FC15275F07590090D15A /* Song.swift */,
 				716464A5276193EB007F4D45 /* Tab.swift */,
+				716464B72766CC44007F4D45 /* Download.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -495,12 +501,14 @@
 				716464B22766B777007F4D45 /* GlobalProfile.swift in Sources */,
 				7184FC10275EE5450090D15A /* PlayerView.swift in Sources */,
 				7184FC00275EE40A0090D15A /* LoginView.swift in Sources */,
+				716464BC2766CC6D007F4D45 /* BarGraph.swift in Sources */,
 				7184FC04275EE4780090D15A /* OnboardingView.swift in Sources */,
 				716464B42766B786007F4D45 /* AuthProfile.swift in Sources */,
 				7184FC0E275EE5300090D15A /* ChapterView.swift in Sources */,
 				716464B62766BF68007F4D45 /* RecentlyView.swift in Sources */,
 				716464AF2766B43A007F4D45 /* BrowseView.swift in Sources */,
 				7184FC02275EE44C0090D15A /* ForgotPasswordView.swift in Sources */,
+				716464B82766CC44007F4D45 /* Download.swift in Sources */,
 				716464AD2765768A007F4D45 /* resetPassView.swift in Sources */,
 				7184FBD4275EDD7B0090D15A /* ArcticFoxAudioApp.swift in Sources */,
 				7184FC0C275EE5190090D15A /* BookView.swift in Sources */,

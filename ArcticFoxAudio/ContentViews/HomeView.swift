@@ -169,7 +169,10 @@ struct HomeView: View {
        
                             // List Of Genres...
                             ForEach(generes,id: \.self){genre in
-                                Button(action: {}, label: {
+                                Button(action: {
+                                    globalProfile.currentTab = "safari.fill"
+                                    globalProfile.clickedGenre = genre
+                                }, label: {
                                     Text(genre)
                                         .fontWeight(.semibold)
                                         .foregroundColor(.black)
