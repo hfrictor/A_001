@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct AccountView: View {
+    
+    @EnvironmentObject var globalProfile: GlobalProfile
+    
     var body: some View {
-        Text("Settings")
-            .font(.title)
-            .fontWeight(.bold)
-            .foregroundColor(.black)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.top,30)
-            .padding(.leading,15)
+        VStack {
+            Text("Settings")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(.black)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.top,30)
+                .padding(.leading,15)
+        }
     }
 }
 

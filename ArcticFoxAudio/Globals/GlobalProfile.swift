@@ -11,5 +11,5 @@ import SwiftUI
 class GlobalProfile: ObservableObject {
     
     @Published var currentTab = "house.fill"
-    
+
 }

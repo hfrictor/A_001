@@ -56,10 +56,6 @@ struct HomeView: View {
                            
             }
             
-        } else if accountViewing == true {
-            
-           AccountView()
-            
         } else {
             HStack(spacing: 0){
                 
@@ -85,13 +81,13 @@ struct HomeView: View {
                             .background(Color.black.opacity(0.06))
                             .cornerRadius(8)
                             
-                            Button(action: {accountViewing.toggle()}, label: {
-                                Image("profile")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 45, height: 45)
-                                    .cornerRadius(10)
-                            })
+                            Text("HF")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color("logoColor"))
+                                .frame(width:45)
+                                .padding(5)
+                            
                         }
                         
                         Text("Recently Played")
