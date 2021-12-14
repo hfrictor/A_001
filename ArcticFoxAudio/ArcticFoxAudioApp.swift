@@ -14,7 +14,7 @@ struct ArcticFoxAudioApp: App {
             
             let globalProfile = GlobalProfile()
             //use LoginView() for final app
-            HomeView().navigationBarHidden(true)
+            SplashScreen()
             .environmentObject(globalProfile)
 
         }

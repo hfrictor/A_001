@@ -227,6 +227,9 @@ struct HomeView: View {
                     })
                     }
                 }.background(Color("bg").ignoresSafeArea())
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
 
         }
     }

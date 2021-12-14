@@ -44,7 +44,12 @@ struct BrowseView: View {
                 }
             }).padding(.horizontal)
              .padding(.top,20)
-        }
+        }.navigationBarTitle("")
+         .navigationBarHidden(true)
+         .navigationBarBackButtonHidden(true)
+         .onDisappear{
+             globalProfile.clickedGenre = "For You"
+         }
     }
 }
 

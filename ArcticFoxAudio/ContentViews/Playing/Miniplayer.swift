@@ -188,9 +188,10 @@ struct Miniplayer: View {
         
             VStack(spacing: 0){
                 
-                BlurView()
-                
-                Divider()
+                FillerView()
+//                BlurView()
+//
+//                Divider()
             }
             .onTapGesture(perform: {
                 

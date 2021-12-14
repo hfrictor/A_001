@@ -193,7 +193,9 @@ struct SettingsView: View {
                 }
                 .padding()
             }
-        }
+        }.navigationBarTitle("")
+         .navigationBarHidden(true)
+         .navigationBarBackButtonHidden(true)
     }
     
     @ViewBuilder

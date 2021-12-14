@@ -42,7 +42,9 @@ struct RecentlyView: View {
                 }
             }).padding(.horizontal)
              .padding(.top,20)
-        }
+        }.navigationBarTitle("")
+         .navigationBarHidden(true)
+         .navigationBarBackButtonHidden(true)
     }
 }
 

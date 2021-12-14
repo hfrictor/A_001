@@ -19,6 +19,7 @@
 		716464BC2766CC6D007F4D45 /* BarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464BB2766CC6D007F4D45 /* BarGraph.swift */; };
 		716464BE27692378007F4D45 /* Miniplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464BD27692378007F4D45 /* Miniplayer.swift */; };
 		716464C0276923BC007F4D45 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464BF276923BC007F4D45 /* BlurView.swift */; };
+		716464C227693594007F4D45 /* FillerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464C127693594007F4D45 /* FillerView.swift */; };
 		7184FBD4275EDD7B0090D15A /* ArcticFoxAudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBD3275EDD7B0090D15A /* ArcticFoxAudioApp.swift */; };
 		7184FBD8275EDD7C0090D15A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7184FBD7275EDD7C0090D15A /* Assets.xcassets */; };
 		7184FBDB275EDD7C0090D15A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7184FBDA275EDD7C0090D15A /* Preview Assets.xcassets */; };
@@ -33,7 +34,6 @@
 		7184FC08275EE4AC0090D15A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC07275EE4AC0090D15A /* SettingsView.swift */; };
 		7184FC0C275EE5190090D15A /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC0B275EE5190090D15A /* BookView.swift */; };
 		7184FC0E275EE5300090D15A /* ChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC0D275EE5300090D15A /* ChapterView.swift */; };
-		7184FC10275EE5450090D15A /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC0F275EE5450090D15A /* PlayerView.swift */; };
 		7184FC13275F07140090D15A /* SideTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC12275F07140090D15A /* SideTabView.swift */; };
 		7184FC16275F07590090D15A /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC15275F07590090D15A /* Song.swift */; };
 		BFDD3B1F83D8B2E58F4FD02F /* Pods_ArcticFoxAudioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 018FE72AFAE9B26E552EF269 /* Pods_ArcticFoxAudioTests.framework */; };
@@ -73,6 +73,7 @@
 		716464BB2766CC6D007F4D45 /* BarGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarGraph.swift; sourceTree = "<group>"; };
 		716464BD27692378007F4D45 /* Miniplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Miniplayer.swift; sourceTree = "<group>"; };
 		716464BF276923BC007F4D45 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		716464C127693594007F4D45 /* FillerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillerView.swift; sourceTree = "<group>"; };
 		7184FBD0275EDD7B0090D15A /* ArcticFoxAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArcticFoxAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7184FBD3275EDD7B0090D15A /* ArcticFoxAudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticFoxAudioApp.swift; sourceTree = "<group>"; };
 		7184FBD7275EDD7C0090D15A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,7 +91,6 @@
 		7184FC07275EE4AC0090D15A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		7184FC0B275EE5190090D15A /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		7184FC0D275EE5300090D15A /* ChapterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterView.swift; sourceTree = "<group>"; };
-		7184FC0F275EE5450090D15A /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		7184FC12275F07140090D15A /* SideTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideTabView.swift; sourceTree = "<group>"; };
 		7184FC15275F07590090D15A /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		864162374BD0DEA82DB4470F /* Pods-ArcticFoxAudioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArcticFoxAudioTests.debug.xcconfig"; path = "Target Support Files/Pods-ArcticFoxAudioTests/Pods-ArcticFoxAudioTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +157,29 @@
 			path = Globals;
 			sourceTree = "<group>";
 		};
+		716464C327693683007F4D45 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				7184FBFD275EE3FA0090D15A /* SignUpView.swift */,
+				7184FBFF275EE40A0090D15A /* LoginView.swift */,
+				7184FC01275EE44C0090D15A /* ForgotPasswordView.swift */,
+				7184FC03275EE4780090D15A /* OnboardingView.swift */,
+				716464AC2765768A007F4D45 /* resetPassView.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		716464C4276936A2007F4D45 /* Playing */ = {
+			isa = PBXGroup;
+			children = (
+				7184FC0D275EE5300090D15A /* ChapterView.swift */,
+				7184FC0B275EE5190090D15A /* BookView.swift */,
+				716464BD27692378007F4D45 /* Miniplayer.swift */,
+				716464C127693594007F4D45 /* FillerView.swift */,
+			);
+			path = Playing;
+			sourceTree = "<group>";
+		};
 		7184FBC7275EDD7B0090D15A = {
 			isa = PBXGroup;
 			children = (
@@ -221,20 +244,13 @@
 		7184FC11275EE5710090D15A /* ContentViews */ = {
 			isa = PBXGroup;
 			children = (
-				7184FBFD275EE3FA0090D15A /* SignUpView.swift */,
-				7184FBFF275EE40A0090D15A /* LoginView.swift */,
-				7184FC01275EE44C0090D15A /* ForgotPasswordView.swift */,
-				7184FC03275EE4780090D15A /* OnboardingView.swift */,
+				716464C4276936A2007F4D45 /* Playing */,
+				716464C327693683007F4D45 /* Authentication */,
 				7184FC05275EE48F0090D15A /* HomeView.swift */,
 				7184FC07275EE4AC0090D15A /* SettingsView.swift */,
-				7184FC0B275EE5190090D15A /* BookView.swift */,
-				7184FC0D275EE5300090D15A /* ChapterView.swift */,
-				7184FC0F275EE5450090D15A /* PlayerView.swift */,
 				7184FC12275F07140090D15A /* SideTabView.swift */,
-				716464AC2765768A007F4D45 /* resetPassView.swift */,
 				716464AE2766B43A007F4D45 /* BrowseView.swift */,
 				716464B52766BF68007F4D45 /* RecentlyView.swift */,
-				716464BD27692378007F4D45 /* Miniplayer.swift */,
 			);
 			path = ContentViews;
 			sourceTree = "<group>";
@@ -506,7 +522,6 @@
 				7184FC06275EE48F0090D15A /* HomeView.swift in Sources */,
 				716464BE27692378007F4D45 /* Miniplayer.swift in Sources */,
 				716464B22766B777007F4D45 /* GlobalProfile.swift in Sources */,
-				7184FC10275EE5450090D15A /* PlayerView.swift in Sources */,
 				7184FC00275EE40A0090D15A /* LoginView.swift in Sources */,
 				716464BC2766CC6D007F4D45 /* BarGraph.swift in Sources */,
 				7184FC04275EE4780090D15A /* OnboardingView.swift in Sources */,
@@ -520,6 +535,7 @@
 				716464AD2765768A007F4D45 /* resetPassView.swift in Sources */,
 				7184FBD4275EDD7B0090D15A /* ArcticFoxAudioApp.swift in Sources */,
 				7184FC0C275EE5190090D15A /* BookView.swift in Sources */,
+				716464C227693594007F4D45 /* FillerView.swift in Sources */,
 				7184FC16275F07590090D15A /* Song.swift in Sources */,
 				7184FC13275F07140090D15A /* SideTabView.swift in Sources */,
 				716464A6276193EB007F4D45 /* Tab.swift in Sources */,

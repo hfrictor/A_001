@@ -257,6 +257,7 @@ struct SplashScreen: View{
              .navigationBarBackButtonHidden(true)
             
             
+            
             if !removeSplashScreen{
                 
                 Color("logoColor")
@@ -278,7 +279,9 @@ struct SplashScreen: View{
                     )
                     .ignoresSafeArea()
             }
-        }
+        }.navigationBarTitle("")
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
         
         // avoiding dark twitter color...
         .preferredColorScheme(splashAnimation ? nil : .light)
