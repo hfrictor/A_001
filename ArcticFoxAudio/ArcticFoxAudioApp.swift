@@ -14,7 +14,8 @@ struct ArcticFoxAudioApp: App {
             
             let globalProfile = GlobalProfile()
             //use LoginView() for final app
-            SplashScreen()
+            //SplashScreen()
+            LoginView()
             .environmentObject(globalProfile)
 
         }

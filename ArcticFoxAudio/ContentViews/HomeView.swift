@@ -11,6 +11,7 @@ struct HomeView: View {
     
     // Search Text...
     @State var searchText = ""
+    @State var search = false
     @EnvironmentObject var globalProfile: GlobalProfile
     
     @State var accountViewing = false
@@ -64,6 +65,10 @@ struct HomeView: View {
             
             Miniplayer(animation: animation, expand: $expand)
             
+        } else if search == true {
+            
+            SearchView(searchText: searchText)
+            
         } else {
 
                 HStack(spacing: 0){
@@ -86,6 +91,18 @@ struct HomeView: View {
                                         .frame(width: 25, height: 25)
                                     
                                     TextField("Search...", text: $searchText)
+                                    
+                                    Spacer()
+                                    
+                                    Button(action: {
+                                        if searchText != "" {
+                                            search.toggle()
+                                        } else {
+                                            
+                                        }
+                                    }, label: {
+                                        Image(systemName: "magnifyingglass")
+                                    })
                                 }
                                 .padding(.vertical,10)
                                 .padding(.horizontal)
