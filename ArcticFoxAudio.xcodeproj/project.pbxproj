@@ -17,6 +17,8 @@
 		716464B62766BF68007F4D45 /* RecentlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464B52766BF68007F4D45 /* RecentlyView.swift */; };
 		716464B82766CC44007F4D45 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464B72766CC44007F4D45 /* Download.swift */; };
 		716464BC2766CC6D007F4D45 /* BarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464BB2766CC6D007F4D45 /* BarGraph.swift */; };
+		716464BE27692378007F4D45 /* Miniplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464BD27692378007F4D45 /* Miniplayer.swift */; };
+		716464C0276923BC007F4D45 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464BF276923BC007F4D45 /* BlurView.swift */; };
 		7184FBD4275EDD7B0090D15A /* ArcticFoxAudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBD3275EDD7B0090D15A /* ArcticFoxAudioApp.swift */; };
 		7184FBD8275EDD7C0090D15A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7184FBD7275EDD7C0090D15A /* Assets.xcassets */; };
 		7184FBDB275EDD7C0090D15A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7184FBDA275EDD7C0090D15A /* Preview Assets.xcassets */; };
@@ -69,6 +71,8 @@
 		716464B52766BF68007F4D45 /* RecentlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyView.swift; sourceTree = "<group>"; };
 		716464B72766CC44007F4D45 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		716464BB2766CC6D007F4D45 /* BarGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarGraph.swift; sourceTree = "<group>"; };
+		716464BD27692378007F4D45 /* Miniplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Miniplayer.swift; sourceTree = "<group>"; };
+		716464BF276923BC007F4D45 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		7184FBD0275EDD7B0090D15A /* ArcticFoxAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArcticFoxAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7184FBD3275EDD7B0090D15A /* ArcticFoxAudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticFoxAudioApp.swift; sourceTree = "<group>"; };
 		7184FBD7275EDD7C0090D15A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 			children = (
 				716464AA27655114007F4D45 /* splash.json */,
 				716464BB2766CC6D007F4D45 /* BarGraph.swift */,
+				716464BF276923BC007F4D45 /* BlurView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 				716464AC2765768A007F4D45 /* resetPassView.swift */,
 				716464AE2766B43A007F4D45 /* BrowseView.swift */,
 				716464B52766BF68007F4D45 /* RecentlyView.swift */,
+				716464BD27692378007F4D45 /* Miniplayer.swift */,
 			);
 			path = ContentViews;
 			sourceTree = "<group>";
@@ -498,6 +504,7 @@
 				7184FBFE275EE3FA0090D15A /* SignUpView.swift in Sources */,
 				7184FC08275EE4AC0090D15A /* SettingsView.swift in Sources */,
 				7184FC06275EE48F0090D15A /* HomeView.swift in Sources */,
+				716464BE27692378007F4D45 /* Miniplayer.swift in Sources */,
 				716464B22766B777007F4D45 /* GlobalProfile.swift in Sources */,
 				7184FC10275EE5450090D15A /* PlayerView.swift in Sources */,
 				7184FC00275EE40A0090D15A /* LoginView.swift in Sources */,
@@ -509,6 +516,7 @@
 				716464AF2766B43A007F4D45 /* BrowseView.swift in Sources */,
 				7184FC02275EE44C0090D15A /* ForgotPasswordView.swift in Sources */,
 				716464B82766CC44007F4D45 /* Download.swift in Sources */,
+				716464C0276923BC007F4D45 /* BlurView.swift in Sources */,
 				716464AD2765768A007F4D45 /* resetPassView.swift in Sources */,
 				7184FBD4275EDD7B0090D15A /* ArcticFoxAudioApp.swift in Sources */,
 				7184FC0C275EE5190090D15A /* BookView.swift in Sources */,

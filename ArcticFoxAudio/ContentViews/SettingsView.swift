@@ -15,177 +15,184 @@ struct SettingsView: View {
     @State var password = ""
     @State var confirmpassword = ""
     
+    // Miniplayer Properties...
+    @State var expand = false
+    @Namespace var animation
+    
     var body: some View {
         
         // Home View...
-        ScrollView(.vertical, showsIndicators: false) {
-            
-            VStack(spacing: 18){
-                // Graph View....
-                BarGraph(downloads: downloads)
+        VStack{
+            Miniplayer(animation: animation, expand: $expand).padding(.top, 1).background(.white)
+            ScrollView(.vertical, showsIndicators: false) {
                 
-                // Users View...
-                HStack(spacing: 0){
+                VStack(spacing: 18){
+                    // Graph View....
+                    BarGraph(downloads: downloads)
                     
-                    UserProgress(title: "To Kill a Mocking Bird", color: Color("LightBlue"), image: "book", progress: 68)
-                    
-                    UserProgress(title: "Harry Potter", color: Color("LightBlue"), image: "book", progress: 72)
-                    
-                    UserProgress(title: "Unstoppable", color: Color("Pink"), image: "book", progress: 12)
-                }
-                .padding()
-                .background(Color.white)
-                .cornerRadius(18)
-                
-                // Most Downloads...
-                VStack{
+                    // Users View...
+                    HStack(spacing: 0){
                         
-                        HStack{
+                        UserProgress(title: "To Kill a Mocking Bird", color: Color("LightBlue"), image: "book", progress: 68)
+                        
+                        UserProgress(title: "Harry Potter", color: Color("LightBlue"), image: "book", progress: 72)
+                        
+                        UserProgress(title: "Unstoppable", color: Color("Pink"), image: "book", progress: 12)
+                    }
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(18)
+                    
+                    // Most Downloads...
+                    VStack{
                             
-                            VStack(alignment: .leading, spacing: 10, content: {
-                                Text("Settings")
-                                    .font(.title)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.black)
+                            HStack{
                                 
-                                Text("Change information then save changes by pressing the button below.")
-                                    .foregroundColor(.gray)
+                                VStack(alignment: .leading, spacing: 10, content: {
+                                    Text("Settings")
+                                        .font(.title)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.black)
+                                    
+                                    Text("Change information then save changes by pressing the button below.")
+                                        .foregroundColor(.gray)
+                                })
+                                
+                                Spacer(minLength: 15)
+                            }
+                            
+                            VStack {
+                                HStack(spacing: 15){
+                                    
+                                    Text("First")
+                                        .foregroundColor(.black)
+                                    
+                                    Rectangle()
+                                        .fill(Color("logoColor"))
+                                        .frame(width: 1, height: 18)
+                                    
+                                    TextField("", text: $firstname)
+                                }
+                                
+                                Divider()
+                                    .background(Color("logoColor"))
+                            }.padding(.vertical)
+                            
+                            VStack {
+                                HStack(spacing: 15){
+                                    
+                                    Text("Last")
+                                        .foregroundColor(.black)
+                                    
+                                    Rectangle()
+                                        .fill(Color("logoColor"))
+                                        .frame(width: 1, height: 18)
+                                    
+                                    TextField("", text: $lastname)
+                                }
+                                
+                                Divider()
+                                    .background(Color("logoColor"))
+                            }.padding(.vertical)
+                            
+                            VStack {
+                                HStack(spacing: 15){
+                                    
+                                    Text("Email")
+                                        .foregroundColor(.black)
+                                    
+                                    Rectangle()
+                                        .fill(Color("logoColor"))
+                                        .frame(width: 1, height: 18)
+                                    
+                                    TextField("", text: $email)
+                                }
+                                
+                                Divider()
+                                    .background(Color("logoColor"))
+                            }.padding(.vertical)
+                            
+                            VStack {
+                                HStack(spacing: 15){
+                                    
+                                    Text("Password")
+                                        .foregroundColor(.black)
+                                    
+                                    Rectangle()
+                                        .fill(Color("logoColor"))
+                                        .frame(width: 1, height: 18)
+                                    
+                                    TextField("", text: $password)
+                                }
+                                
+                                Divider()
+                                    .background(Color("logoColor"))
+                            }.padding(.vertical)
+                            
+                            VStack {
+                                HStack(spacing: 15){
+                                    
+                                    Text("Confirm Pass")
+                                        .foregroundColor(.black)
+                                    
+                                    Rectangle()
+                                        .fill(Color("logoColor"))
+                                        .frame(width: 1, height: 18)
+                                    
+                                    TextField("", text: $confirmpassword)
+                                }
+                                
+                                Divider()
+                                    .background(Color("logoColor"))
+                            }.padding(.vertical)
+                            
+                            
+                            Button(action: {
+                               
+                            }, label: {
+                                Text("Save Changes")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                    .padding(.vertical,10)
+                                    .frame(width: 300)
+                                    .background(Color("logoColor"))
+                                    .clipShape(Capsule())
+                            })
+                        
+                        HStack {
+                            Button(action: {
+                               
+                            }, label: {
+                                Text("Delete")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                    .padding(.vertical,10)
+                                    .frame(width: 120)
+                                    .background(.red)
+                                    .clipShape(Capsule())
                             })
                             
-                            Spacer(minLength: 15)
-                        }
-                        
-                        VStack {
-                            HStack(spacing: 15){
-                                
-                                Text("First")
-                                    .foregroundColor(.black)
-                                
-                                Rectangle()
-                                    .fill(Color("logoColor"))
-                                    .frame(width: 1, height: 18)
-                                
-                                TextField("", text: $firstname)
-                            }
-                            
-                            Divider()
-                                .background(Color("logoColor"))
-                        }.padding(.vertical)
-                        
-                        VStack {
-                            HStack(spacing: 15){
-                                
-                                Text("Last")
-                                    .foregroundColor(.black)
-                                
-                                Rectangle()
-                                    .fill(Color("logoColor"))
-                                    .frame(width: 1, height: 18)
-                                
-                                TextField("", text: $lastname)
-                            }
-                            
-                            Divider()
-                                .background(Color("logoColor"))
-                        }.padding(.vertical)
-                        
-                        VStack {
-                            HStack(spacing: 15){
-                                
-                                Text("Email")
-                                    .foregroundColor(.black)
-                                
-                                Rectangle()
-                                    .fill(Color("logoColor"))
-                                    .frame(width: 1, height: 18)
-                                
-                                TextField("", text: $email)
-                            }
-                            
-                            Divider()
-                                .background(Color("logoColor"))
-                        }.padding(.vertical)
-                        
-                        VStack {
-                            HStack(spacing: 15){
-                                
-                                Text("Password")
-                                    .foregroundColor(.black)
-                                
-                                Rectangle()
-                                    .fill(Color("logoColor"))
-                                    .frame(width: 1, height: 18)
-                                
-                                TextField("", text: $password)
-                            }
-                            
-                            Divider()
-                                .background(Color("logoColor"))
-                        }.padding(.vertical)
-                        
-                        VStack {
-                            HStack(spacing: 15){
-                                
-                                Text("Confirm Pass")
-                                    .foregroundColor(.black)
-                                
-                                Rectangle()
-                                    .fill(Color("logoColor"))
-                                    .frame(width: 1, height: 18)
-                                
-                                TextField("", text: $confirmpassword)
-                            }
-                            
-                            Divider()
-                                .background(Color("logoColor"))
-                        }.padding(.vertical)
-                        
-                        
-                        Button(action: {
-                           
-                        }, label: {
-                            Text("Save Changes")
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                                .padding(.vertical,10)
-                                .frame(width: 300)
-                                .background(Color("logoColor"))
-                                .clipShape(Capsule())
-                        })
-                    
-                    HStack {
-                        Button(action: {
-                           
-                        }, label: {
-                            Text("Delete")
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                                .padding(.vertical,10)
-                                .frame(width: 120)
-                                .background(.red)
-                                .clipShape(Capsule())
-                        })
-                        
-                        Button(action: {
-                           
-                        }, label: {
-                            Text("Logout")
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                                .padding(.vertical,10)
-                                .frame(width: 120)
-                                .background(.black)
-                                .clipShape(Capsule())
-                        })
-                    }.padding(.top, 15)
+                            Button(action: {
+                               
+                            }, label: {
+                                Text("Logout")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                    .padding(.vertical,10)
+                                    .frame(width: 120)
+                                    .background(.black)
+                                    .clipShape(Capsule())
+                            })
+                        }.padding(.top, 15)
 
-                    
+                        
+                    }
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(18)
                 }
                 .padding()
-                .background(Color.white)
-                .cornerRadius(18)
             }
-            .padding()
         }
     }
     
