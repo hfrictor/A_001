@@ -18,7 +18,9 @@ struct SearchView: View {
     
     var body: some View {
         VStack{
+            
             Spacer()
+            
             
             Miniplayer(animation: animation, expand: $expand).padding(.top, 1).background(.white)
             
