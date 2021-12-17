@@ -22,6 +22,7 @@ struct SearchView: View {
             Spacer()
             
             
+            
             Miniplayer(animation: animation, expand: $expand).padding(.top, 1).background(.white)
             
             HStack(spacing: 15){
