@@ -37,6 +37,7 @@
 		7184FC0E275EE5300090D15A /* ChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC0D275EE5300090D15A /* ChapterView.swift */; };
 		7184FC13275F07140090D15A /* SideTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC12275F07140090D15A /* SideTabView.swift */; };
 		7184FC16275F07590090D15A /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FC15275F07590090D15A /* Song.swift */; };
+		719F3868276FD64D00C3AC54 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 719F3867276FD64D00C3AC54 /* GoogleService-Info.plist */; };
 		BFDD3B1F83D8B2E58F4FD02F /* Pods_ArcticFoxAudioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 018FE72AFAE9B26E552EF269 /* Pods_ArcticFoxAudioTests.framework */; };
 		D23986A4E54FDF21CE25906A /* Pods_ArcticFoxAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB32AF9D7D8FCA5DFA27E904 /* Pods_ArcticFoxAudio.framework */; };
 /* End PBXBuildFile section */
@@ -95,6 +96,7 @@
 		7184FC0D275EE5300090D15A /* ChapterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterView.swift; sourceTree = "<group>"; };
 		7184FC12275F07140090D15A /* SideTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideTabView.swift; sourceTree = "<group>"; };
 		7184FC15275F07590090D15A /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		719F3867276FD64D00C3AC54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		864162374BD0DEA82DB4470F /* Pods-ArcticFoxAudioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArcticFoxAudioTests.debug.xcconfig"; path = "Target Support Files/Pods-ArcticFoxAudioTests/Pods-ArcticFoxAudioTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B5480BEBAA7607050F910840 /* Pods_ArcticFoxAudio_ArcticFoxAudioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArcticFoxAudio_ArcticFoxAudioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC069CA4909B6EEB6FF70D40 /* Pods-ArcticFoxAudio-ArcticFoxAudioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArcticFoxAudio-ArcticFoxAudioUITests.release.xcconfig"; path = "Target Support Files/Pods-ArcticFoxAudio-ArcticFoxAudioUITests/Pods-ArcticFoxAudio-ArcticFoxAudioUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				7184FC11275EE5710090D15A /* ContentViews */,
 				7184FBD3275EDD7B0090D15A /* ArcticFoxAudioApp.swift */,
 				7184FBD7275EDD7C0090D15A /* Assets.xcassets */,
+				719F3867276FD64D00C3AC54 /* GoogleService-Info.plist */,
 				7184FBD9275EDD7C0090D15A /* Preview Content */,
 			);
 			path = ArcticFoxAudio;
@@ -391,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				716464AB27655114007F4D45 /* splash.json in Resources */,
+				719F3868276FD64D00C3AC54 /* GoogleService-Info.plist in Resources */,
 				7184FBDB275EDD7C0090D15A /* Preview Assets.xcassets in Resources */,
 				7184FBD8275EDD7C0090D15A /* Assets.xcassets in Resources */,
 			);

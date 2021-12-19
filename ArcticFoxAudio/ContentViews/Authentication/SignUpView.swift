@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseAuth
 
 
 struct SignUpView: View {
@@ -20,7 +22,78 @@ struct SignUpView: View {
     @State var password = ""
     @State var confirmpassword = ""
     
+    @State var emailExists = false
+    @State var usernameExists = false
+    @State var notFilledOut = false
+    
+    @EnvironmentObject var authProfile: AuthProfile
+    
+    
+    func checkEmail(enteredEmail: String) {
+        
+        self.emailExists = false
+        DispatchQueue.main.async {
+        Firestore.firestore().collection("Users").whereField("email", isEqualTo: enteredEmail)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                    print("Email does not exist")
+                    self.emailExists = false
+                } else {
+                    self.emailExists = true
+                }
+
+       
+            print("Successfully Checked If Email Exists")
+        }
+    }
+    }
+    
+        
+    func checkUsername(enteredUsername: String) {
+        
+        self.usernameExists = false
+        DispatchQueue.main.async {
+        
+        Firestore.firestore().collection("Users").whereField("username", isEqualTo: enteredUsername)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                    print("Username does not exist")
+                    self.usernameExists = false
+                } else {
+                    self.usernameExists = true
+                }
+
+       
+            print("Successfully Checked If Username Exists")
+        }
+    }
+        
+    }
+    
+    
+    func tryLogin() {
+        
+        guard !email.isEmpty, !password.isEmpty, !firstname.isEmpty, !lastname.isEmpty else {
+            notFilledOut = true
+            return
+        }
+        checkEmail(enteredEmail: email)
+        if emailExists == true {
+            
+        } else if usernameExists == true {
+            
+        } else if usernameExists == false && emailExists == false {
+            authProfile.signUp(email: email, password: password)
+           // authProfile.createNewUser(entered_email: email, entered_firstname: firstname, entered_lastname: lastname, entered_password: password)
+        } else {
+            
+        }
+    }
+    
     var body: some View {
+        
         NavigationView {
             if isSignedUp == true {
                 SplashScreen()
@@ -99,6 +172,8 @@ struct SignUpView: View {
                                                 .frame(width: 1, height: 18)
                                             
                                             TextField("", text: $email)
+                                                .disableAutocorrection(true)
+                                                .autocapitalization(.none)
                                         }
                                         
                                         Divider()
@@ -115,7 +190,9 @@ struct SignUpView: View {
                                                 .fill(Color("logoColor"))
                                                 .frame(width: 1, height: 18)
                                             
-                                            TextField("", text: $password)
+                                            SecureField("", text: $password)
+                                                .disableAutocorrection(true)
+                                                .autocapitalization(.none)
                                         }
                                         
                                         Divider()
@@ -132,7 +209,10 @@ struct SignUpView: View {
                                                 .fill(Color("logoColor"))
                                                 .frame(width: 1, height: 18)
                                             
-                                            TextField("", text: $confirmpassword)
+                                            SecureField("", text: $confirmpassword)
+                                                .disableAutocorrection(true)
+                                                .autocapitalization(.none)
+                                                
                                         }
                                         
                                         Divider()
@@ -141,7 +221,7 @@ struct SignUpView: View {
                                     
                                     
                                     Button(action: {
-                                        isOnbarded.toggle()
+                                        tryLogin()
                                     }, label: {
                                         Text("Signup")
                                             .fontWeight(.bold)
@@ -151,6 +231,12 @@ struct SignUpView: View {
                                             .background(Color("logoColor"))
                                             .clipShape(Capsule())
                                     })
+                                    
+                                    NavigationLink("Back to Login", destination: LoginView())
+                                    
+                                    Spacer()
+                                    
+                                    NavigationLink("Need Help Signing in? Reset Password", destination: resetPassView())
                                     
                                     
                                 }

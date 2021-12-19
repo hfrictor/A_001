@@ -10,20 +10,30 @@ import Lottie
 
 struct LoginView: View {
     
-    @State var isLoggedIn = false
     @State var isSignedUp = true
     @State var show = false
     
     @State var email = ""
     @State var password = ""
     
+    @EnvironmentObject var authProfile: AuthProfile
+    
     var body: some View {
+        
+        let defaults = UserDefaults.standard
+        let emailSaved = defaults.string(forKey: "Email")
+        let passwordSaved = defaults.string(forKey: "Password")
+        
         NavigationView {
 
-            if isLoggedIn == true {
+            if emailSaved != nil && passwordSaved != nil {
+                
                 SplashScreen()
+                
             } else if isSignedUp == false{
+                
                 SignUpView()
+                
             } else {
                     
                     VStack{
@@ -68,6 +78,8 @@ struct LoginView: View {
                                                 .frame(width: 1, height: 18)
                                             
                                             TextField("", text: $email)
+                                                .disableAutocorrection(true)
+                                                .autocapitalization(.none)
                                         }
                                         
                                         Divider()
@@ -85,7 +97,9 @@ struct LoginView: View {
                                                 .fill(Color("logoColor"))
                                                 .frame(width: 1, height: 18)
                                             
-                                            TextField("", text: $password)
+                                            SecureField("", text: $password)
+                                                .disableAutocorrection(true)
+                                                .autocapitalization(.none)
                                         }
                                         
                                         Divider()
@@ -94,7 +108,10 @@ struct LoginView: View {
                                     .padding(.vertical)
                                     
                                     Button(action: {
-                                        isLoggedIn.toggle()
+                                        guard !email.isEmpty, !password.isEmpty else {
+                                            return
+                                        }
+                                        authProfile.signIn(email: email, password: password)
                                         
                                     }, label: {
                                         Text("Login")
@@ -106,7 +123,11 @@ struct LoginView: View {
                                             .clipShape(Capsule())
                                     })
                                     
-                                    Button(action: {isSignedUp.toggle()}, label: {
+                                    Button(action: {
+                                        
+                                        isSignedUp.toggle()
+                                        
+                                    }, label: {
                                         Text("Signup")
                                             .fontWeight(.bold)
                                             .foregroundColor(.white)
@@ -187,8 +208,13 @@ struct LoginView: View {
                                 .opacity(show ? 1 : 0)
                             }
                         }
+                    }.onAppear{
+                        print("+++++++++++++++++++++++++++++++++++++++++++++")
+                        print(emailSaved)
+                        print(passwordSaved)
+                        print(authProfile.isSignedIn)
                     }
-                }
+            }
             }.navigationBarTitle("")
              .navigationBarHidden(true)
              .navigationBarBackButtonHidden(true)
