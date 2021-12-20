@@ -27,7 +27,7 @@ struct HomeView: View {
         
         let defaults = UserDefaults.standard
         let firstnameSaved = defaults.string(forKey: "Firstname") ?? ""
-        let lastnameSaved = defaults.string(forKey: "Lastname")
+        let lastnameSaved = defaults.string(forKey: "Lastname") ?? ""
         
         if globalProfile.currentTab == "safari.fill" {
             HStack(spacing: 0){
@@ -115,11 +115,11 @@ struct HomeView: View {
                                 .background(Color.black.opacity(0.06))
                                 .cornerRadius(8)
                                 
-                                Text(firstnameSaved)
-                                    .font(.title)
+                                Text(initials)
+                                    .font(.title2)
                                     .fontWeight(.bold)
                                     .foregroundColor(Color("logoColor"))
-                                    .frame(width:45)
+                                    .frame(width:40)
                                     .padding(5)
                                 
                             }
@@ -249,6 +249,10 @@ struct HomeView: View {
                         .frame(maxWidth: .infinity)
                     })
                     }
+                }.onAppear{
+                    let letter_one = firstnameSaved[firstnameSaved.index(firstnameSaved.startIndex, offsetBy: 0)]
+                    let letter_two = lastnameSaved[lastnameSaved.index(lastnameSaved.startIndex, offsetBy: 0)]
+                    initials = "\(letter_one) \(letter_two)"
                 }.background(Color("bg").ignoresSafeArea())
                 .navigationBarTitle("")
                 .navigationBarHidden(true)

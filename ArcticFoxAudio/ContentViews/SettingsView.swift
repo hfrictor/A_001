@@ -44,6 +44,9 @@ struct SettingsView: View {
                     }
         DispatchQueue.main.async {
             print("Signed Up User Successfully")
+            let defaults = UserDefaults.standard
+            defaults.set(authProfile.firstname, forKey: "Firstname")
+            defaults.set(authProfile.lastname, forKey: "Lastname")
         }
     }
     
