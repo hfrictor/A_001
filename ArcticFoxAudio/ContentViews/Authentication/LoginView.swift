@@ -28,7 +28,10 @@ struct LoginView: View {
 
             if emailSaved != nil && passwordSaved != nil {
                 
-                SplashScreen()
+                SplashScreen().onAppear{
+                    email = emailSaved ?? ""
+                    authProfile.loadUser(entered_email: email)
+                }
                 
             } else if isSignedUp == false{
                 
@@ -208,11 +211,6 @@ struct LoginView: View {
                                 .opacity(show ? 1 : 0)
                             }
                         }
-                    }.onAppear{
-                        print("+++++++++++++++++++++++++++++++++++++++++++++")
-                        print(emailSaved)
-                        print(passwordSaved)
-                        print(authProfile.isSignedIn)
                     }
             }
             }.navigationBarTitle("")
@@ -262,16 +260,14 @@ struct SplashScreen: View{
     @State var splashAnimation: Bool = false
     
     @Environment(\.colorScheme) var scheme
+    @EnvironmentObject var authProfile: AuthProfile
     
     @State var removeSplashScreen: Bool = false
     
     var body: some View{
         
         let defaults = UserDefaults.standard
-        let emailSaved = defaults.string(forKey: "Email")
-        let passwordSaved = defaults.string(forKey: "Password")
-        
-        let test = "something"
+        let emailSaved = defaults.string(forKey: "Email") ?? ""
         
         ZStack{
             
@@ -305,6 +301,8 @@ struct SplashScreen: View{
                     )
                     .ignoresSafeArea()
             }
+        }.onAppear{
+            authProfile.loadUser(entered_email: emailSaved)
         }.navigationBarTitle("")
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)

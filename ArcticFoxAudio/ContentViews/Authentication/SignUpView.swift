@@ -85,8 +85,8 @@ struct SignUpView: View {
         } else if usernameExists == true {
             
         } else if usernameExists == false && emailExists == false {
-            authProfile.signUp(email: email, password: password)
-           // authProfile.createNewUser(entered_email: email, entered_firstname: firstname, entered_lastname: lastname, entered_password: password)
+            authProfile.signUp(email: email, password: password, entered_firstname: firstname, entered_lastname: lastname)
+            authProfile.createNewUser(entered_email: email, entered_firstname: firstname, entered_lastname: lastname, entered_password: password)
         } else {
             
         }

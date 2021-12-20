@@ -13,6 +13,8 @@ struct HomeView: View {
     @State var searchText = ""
     @State var search = false
     @EnvironmentObject var globalProfile: GlobalProfile
+    @EnvironmentObject var authProfile: AuthProfile
+    @State var initials = ""
     
     @State var accountViewing = false
     
@@ -22,6 +24,10 @@ struct HomeView: View {
     
     
     var body: some View {
+        
+        let defaults = UserDefaults.standard
+        let firstnameSaved = defaults.string(forKey: "Firstname") ?? ""
+        let lastnameSaved = defaults.string(forKey: "Lastname")
         
         if globalProfile.currentTab == "safari.fill" {
             HStack(spacing: 0){
@@ -109,7 +115,7 @@ struct HomeView: View {
                                 .background(Color.black.opacity(0.06))
                                 .cornerRadius(8)
                                 
-                                Text("HF")
+                                Text(firstnameSaved)
                                     .font(.title)
                                     .fontWeight(.bold)
                                     .foregroundColor(Color("logoColor"))

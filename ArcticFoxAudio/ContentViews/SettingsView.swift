@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct SettingsView: View {
     
@@ -19,7 +20,38 @@ struct SettingsView: View {
     @State var expand = false
     @Namespace var animation
     
+    @EnvironmentObject var authProfile: AuthProfile
+    
+    
+    func updateUser() {
+        //Firestore Architecture for Making user structure and storing data related to the user
+        let userData: [String: Any] = [
+            "firstname" : authProfile.firstname,
+            "lastname" : authProfile.lastname,
+            "currentPassword" : authProfile.currentPassword,
+        ]
+        
+            let db = Firestore.firestore()
+        
+        let userRef = db.collection("Users").document(email)
+
+                    userRef.updateData(userData) { error in
+                        if let error = error {
+                            print("Error writing document: \(error)")
+                        } else {
+                            print("Users Document successfully written!")
+                        }
+                    }
+        DispatchQueue.main.async {
+            print("Signed Up User Successfully")
+        }
+    }
+    
+    
     var body: some View {
+        
+        let defaults = UserDefaults.standard
+        let emailSaved = defaults.string(forKey: "Email") ?? ""
         
         // Home View...
         VStack{
@@ -71,7 +103,7 @@ struct SettingsView: View {
                                         .fill(Color("logoColor"))
                                         .frame(width: 1, height: 18)
                                     
-                                    TextField("", text: $firstname)
+                                    TextField("", text: $authProfile.firstname)
                                 }
                                 
                                 Divider()
@@ -88,7 +120,7 @@ struct SettingsView: View {
                                         .fill(Color("logoColor"))
                                         .frame(width: 1, height: 18)
                                     
-                                    TextField("", text: $lastname)
+                                    TextField("", text: $authProfile.lastname)
                                 }
                                 
                                 Divider()
@@ -115,7 +147,7 @@ struct SettingsView: View {
                             VStack {
                                 HStack(spacing: 15){
                                     
-                                    Text("Password")
+                                    Text("New Password")
                                         .foregroundColor(.black)
                                     
                                     Rectangle()
@@ -148,7 +180,7 @@ struct SettingsView: View {
                             
                             
                             Button(action: {
-                               
+                               updateUser()
                             }, label: {
                                 Text("Save Changes")
                                     .fontWeight(.bold)
@@ -161,6 +193,8 @@ struct SettingsView: View {
                         
                         HStack {
                             Button(action: {
+                                
+                                authProfile.deleteUserAuth()
                                
                             }, label: {
                                 Text("Delete")
@@ -173,6 +207,8 @@ struct SettingsView: View {
                             })
                             
                             Button(action: {
+                                
+                                authProfile.signOut()
                                
                             }, label: {
                                 Text("Logout")
@@ -192,6 +228,8 @@ struct SettingsView: View {
                     .cornerRadius(18)
                 }
                 .padding()
+            }.onAppear{
+                email = emailSaved
             }
         }.navigationBarTitle("")
          .navigationBarHidden(true)
