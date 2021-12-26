@@ -156,7 +156,9 @@ struct HomeView: View {
                                             
                                             HStack(spacing: 15){
                                                 
-                                                Button(action: {}, label: {
+                                                Button(action: {
+                                                    expand.toggle()
+                                                }, label: {
                                                     
                                                     // Play Button..
                                                     Image(systemName: "play.fill")
@@ -233,12 +235,17 @@ struct HomeView: View {
                                     
                                     GeometryReader{proxy in
                                         
-                                        Image(likedSongs[index].album_cover)
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fill)
-                                            .frame(width: proxy.frame(in: .global).width, height: 150)
-                                            // based on index number were changing the corner style...
-                                            .clipShape(CustomCorners(corners: index % 2 == 0 ? [.topLeft,.bottomLeft] : [.topRight,.bottomRight], radius: 15))
+                                        Button(action: {
+                                            expand.toggle()
+                                        }, label: {
+                                            Image(likedSongs[index].album_cover)
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: proxy.frame(in: .global).width, height: 150)
+                                                // based on index number were changing the corner style...
+                                                .clipShape(CustomCorners(corners: index % 2 == 0 ? [.topLeft,.bottomLeft] : [.topRight,.bottomRight], radius: 15))
+                                        })
+                                        
                                     }
                                     .frame(height: 150)
                                 }

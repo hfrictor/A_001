@@ -20,6 +20,10 @@ struct Miniplayer: View {
     // Volume Slider...
     
     @State var volume : CGFloat = 0
+    @State var playbackSpeed : CGFloat = 0
+    
+    @State var playing = true
+    @State var playingProgress = 4.0
     
     // gesture Offset...
     
@@ -95,7 +99,7 @@ struct Miniplayer: View {
                     
                     Button(action: {}) {
                         
-                        Image(systemName: "ellipsis.circle")
+                        Image(systemName: "text.quote")
                             .font(.title2)
                             .foregroundColor(.primary)
                     }
@@ -104,56 +108,67 @@ struct Miniplayer: View {
                 .padding(.top,20)
                 
                 // Live String...
+                VStack(){
+                    ProgressView(value: playingProgress, total: 9.0)
+                      .progressViewStyle(
+                        LinearProgressViewStyle(tint: .primary))
+                      
+
+                        HStack {
+                            Text("00:00").foregroundColor(.primary)
+
+                                Spacer()
+
+                            Text("00:00").foregroundColor(.primary)
+                        }.font(.system(size: 14, weight: .semibold))
+               
                 
-                HStack{
+                    // Stop Button...
                     
-                    Capsule()
-                        .fill(
+                    HStack {
                         
-                            LinearGradient(gradient: .init(colors: [Color.primary.opacity(0.7),Color.primary.opacity(0.1)]), startPoint: .leading, endPoint: .trailing)
-                        )
-                        .frame(height: 4)
-                    
-                    Text("LIVE")
-                        .fontWeight(.bold)
-                        .foregroundColor(.primary)
-                    
-                    Capsule()
-                        .fill(
+                        Button {} label: {
+                            Image(systemName: "gobackward.15").resizable()
+                        }.frame(width: 35, height: 35, alignment: .center).padding().foregroundColor(.primary.opacity(0.6))
                         
-                            LinearGradient(gradient: .init(colors: [Color.primary.opacity(0.1),Color.primary.opacity(0.7)]), startPoint: .leading, endPoint: .trailing)
-                        )
-                        .frame(height: 4)
-                }
-                .padding()
-                
-                // Stop Button...
-                
-                Button(action: {}) {
+                        
+                        Button {playing.toggle()} label: {
+                            Image(systemName: playing ? "pause.circle.fill" : "play.circle.fill").resizable()
+                        }.frame(width: 70, height: 70, alignment: .center).padding().foregroundColor(.primary)
+                        
+                        
+                        Button {} label: {
+                            Image(systemName: "goforward.15").resizable()
+                        }.frame(width: 35, height: 35, alignment: .center).padding().foregroundColor(.primary.opacity(0.6))
+                        
+                    }
                     
-                    Image(systemName: "stop.fill")
-                        .font(.largeTitle)
-                        .foregroundColor(.primary)
-                }
-                .padding()
-                
-                Spacer(minLength: 0)
-                
-                HStack(spacing: 15){
+                    HStack(spacing: 15){
+                        
+                        Image(systemName: "speaker.fill")
+                        
+                        Slider(value: $volume)
+                        
+                        Image(systemName: "speaker.wave.2.fill")
+                    }.padding()
                     
-                    Image(systemName: "speaker.fill")
                     
-                    Slider(value: $volume)
+                    HStack(spacing: 15){
+                        
+                        Image(systemName: "tortoise")
+                        
+                        Slider(value: $playbackSpeed)
+                        
+                        Image(systemName: "hare")
+                    }
                     
-                    Image(systemName: "speaker.wave.2.fill")
-                }
-                .padding()
+                }.padding()
                 
                 HStack(spacing: 22){
                     
                     Button(action: {}) {
                         
-                        Image(systemName: "arrow.up.message")
+                        Image(systemName: "square.and.arrow.up")
                             .font(.title2)
                             .foregroundColor(.primary)
                     }
