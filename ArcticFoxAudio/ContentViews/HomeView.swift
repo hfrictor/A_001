@@ -6,6 +6,19 @@
 //
 
 import SwiftUI
+import Kingfisher
+import Firebase
+
+struct HomeCard : Hashable {
+    var id = UUID()
+    var title : String
+    var author : String
+    var description : String
+    var pubDate : String
+    var coverImage : String
+    var afhCode : String
+}
+
 
 struct HomeView: View {
     
@@ -22,12 +35,37 @@ struct HomeView: View {
     @State var expand = false
     @Namespace var animation
     
+    @State var library_array = []
+
     
+    
+    func getLibrary(email: String) {
+            Firestore.firestore().collection("Users").document(email).getDocument {
+                (document, error) in
+                if let document = document {
+                    let library_array = document["userLibrary"] as? Array ?? [""]
+                    print(library_array)
+                    
+                    for title in library_array{
+                        //add the afh codes to an array for the home screen
+                        self.library_array.append(title)
+                }
+            }
+            
+        }
+    
+        DispatchQueue.main.async {
+            print("Successfully Fetched Library Info")
+            globalProfile.getbook()
+        }
+    }
+ 
     var body: some View {
         
         let defaults = UserDefaults.standard
         let firstnameSaved = defaults.string(forKey: "Firstname") ?? ""
         let lastnameSaved = defaults.string(forKey: "Lastname") ?? ""
+        let emailSaved = defaults.string(forKey: "Email") ?? ""
         
         if globalProfile.currentTab == "safari.fill" {
             HStack(spacing: 0){
@@ -231,24 +269,17 @@ struct HomeView: View {
                             LazyVGrid(columns: Array(repeating: GridItem(.flexible(),spacing: 10), count: 2), spacing: 10, content: {
 
                                 // Liked Songs...
-                                ForEach(likedSongs.indices,id: \.self){index in
-                                    
+                                ForEach(self.globalProfile.homeCard, id: \.self, content: {
+                                    homecard in
                                     GeometryReader{proxy in
+                                          HomeArt(homecard: homecard).aspectRatio(contentMode: .fill).onTapGesture {
+                                              expand.toggle()}.frame(width: proxy.frame(in: .global).width, height: 250)
+                                              // based on index number were changing the corner style...
+                                            .clipShape(CustomCorners(corners: [.topLeft,.bottomLeft,.topRight,.bottomRight], radius: 15))
                                         
-                                        Button(action: {
-                                            expand.toggle()
-                                        }, label: {
-                                            Image(likedSongs[index].album_cover)
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fill)
-                                                .frame(width: proxy.frame(in: .global).width, height: 150)
-                                                // based on index number were changing the corner style...
-                                                .clipShape(CustomCorners(corners: index % 2 == 0 ? [.topLeft,.bottomLeft] : [.topRight,.bottomRight], radius: 15))
-                                        })
-                                        
-                                    }
-                                    .frame(height: 150)
-                                }
+                                    }.frame(height: 250)
+                                    
+                                })
                             }).padding(.horizontal)
                              .padding(.top,20)
                         }
@@ -260,6 +291,7 @@ struct HomeView: View {
                     let letter_one = firstnameSaved[firstnameSaved.index(firstnameSaved.startIndex, offsetBy: 0)]
                     let letter_two = lastnameSaved[lastnameSaved.index(lastnameSaved.startIndex, offsetBy: 0)]
                     initials = "\(letter_one) \(letter_two)"
+                    getLibrary(email: emailSaved)
                 }.background(Color("bg").ignoresSafeArea())
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
@@ -277,6 +309,18 @@ struct Home_Previews: PreviewProvider {
 }
 
 // Custom Corner for Single Side Corner Image...
+
+struct HomeArt: View {
+    var homecard : HomeCard
+    var body: some View {
+        ZStack(alignment: .bottom, content: {
+            let url = URL(string: homecard.coverImage)!
+            KFImage.url(url).resizable()
+        })
+    }
+    
+}
+
 
 struct CustomCorners: Shape {
     var corners: UIRectCorner
