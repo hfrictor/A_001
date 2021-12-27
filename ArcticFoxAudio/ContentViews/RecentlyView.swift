@@ -11,11 +11,15 @@ struct RecentlyView: View {
     
     // Miniplayer Properties...
     @State var expand = false
+    @State var playingImage = ""
     @Namespace var animation
+    
+    @EnvironmentObject var globalProfile: GlobalProfile
+    @EnvironmentObject var authProfile: AuthProfile
     
     var body: some View {
         VStack{
-            Miniplayer(animation: animation, expand: $expand).padding(.top, 1).background(.white)
+            Miniplayer(animation: animation, expand: $expand, playingImage: $playingImage).padding(.top, 1).background(.white)
             Text("Recently Played")
                 .font(.title)
                 .fontWeight(.bold)
@@ -42,6 +46,8 @@ struct RecentlyView: View {
                 }
             }).padding(.horizontal)
              .padding(.top,20)
+        }.onAppear{
+            playingImage = globalProfile.playingImageURL
         }.navigationBarTitle("")
          .navigationBarHidden(true)
          .navigationBarBackButtonHidden(true)

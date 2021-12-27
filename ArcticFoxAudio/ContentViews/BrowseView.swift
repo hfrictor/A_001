@@ -13,11 +13,12 @@ struct BrowseView: View {
     
     // Miniplayer Properties...
     @State var expand = false
+    @State var playingImage = ""
     @Namespace var animation
     
     var body: some View {
         VStack{
-            Miniplayer(animation: animation, expand: $expand).padding(.top, 1).background(.white)
+            Miniplayer(animation: animation, expand: $expand, playingImage: $playingImage).padding(.top, 1).background(.white)
             Text(globalProfile.clickedGenre)
                 .font(.title)
                 .fontWeight(.bold)

@@ -14,6 +14,7 @@ struct SearchView: View {
     
     // Miniplayer Properties...
     @State var expand = false
+    @State var playingImage = ""
     @Namespace var animation
     
     var body: some View {
@@ -21,7 +22,7 @@ struct SearchView: View {
             
             Spacer()
             
-            Miniplayer(animation: animation, expand: $expand).padding(.top, 1).background(.white)
+            Miniplayer(animation: animation, expand: $expand, playingImage: $playingImage).padding(.top, 1).background(.white)
             
             HStack(spacing: 15){
                 

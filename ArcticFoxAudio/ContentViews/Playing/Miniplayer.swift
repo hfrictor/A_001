@@ -6,28 +6,27 @@
 //
 
 import SwiftUI
+import Kingfisher
+import SwiftAudioPlayer
 
 struct Miniplayer: View {
     var animation: Namespace.ID
     @Binding var expand : Bool
+    @EnvironmentObject var globalProfile: GlobalProfile
+    @EnvironmentObject var authProfile: AuthProfile
     
     var height = UIScreen.main.bounds.height / 3
-    
-    // safearea...
-    
     var safeArea = UIApplication.shared.windows.first?.safeAreaInsets
-    
-    // Volume Slider...
-    
+
     @State var volume : CGFloat = 0
     @State var playbackSpeed : CGFloat = 0
     
     @State var playing = true
     @State var playingProgress = 4.0
-    
-    // gesture Offset...
-    
+
     @State var offset : CGFloat = 0
+    
+    @Binding var playingImage : String
     
     var body: some View {
         
@@ -45,18 +44,28 @@ struct Miniplayer: View {
                 // centering IMage...
                 
                 if expand{Spacer(minLength: 0)}
-                
-                Image("p3")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: expand ? height : 55, height: expand ? height : 55)
-                    .cornerRadius(15)
+                if playingImage == "" {
+                    let url = URL(string: globalProfile.playingImageURL)!
+                    KFImage.url(url)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: expand ? height : 55, height: expand ? height : 55)
+                        .cornerRadius(15)
+                } else {
+                    let url = URL(string: playingImage)!
+                    KFImage.url(url)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: expand ? height : 55, height: expand ? height : 55)
+                        .cornerRadius(15)
+                }
                 
                 if !expand{
                     
-                    Text("Lady Gaga")
+                    Text(globalProfile.playingTitle)
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .fontWeight(.semibold)
+                        .fixedSize(horizontal: false, vertical: true)
                         .matchedGeometryEffect(id: "Label", in: animation)
                 }
                 
@@ -78,6 +87,10 @@ struct Miniplayer: View {
                             .foregroundColor(.primary)
                     })
                 }
+            }.onAppear{
+                if playingImage == nil {
+                    playingImage = globalProfile.playingImageURL
+                }
             }.padding(.horizontal)
             
             VStack(spacing: 15){
@@ -88,10 +101,11 @@ struct Miniplayer: View {
                     
                     if expand{
                         
-                        Text("Lady Gaga")
+                        Text(globalProfile.playingTitle)
                             .font(.title2)
                             .foregroundColor(.primary)
-                            .fontWeight(.bold)
+                            .fontWeight(.semibold)
+                            .fixedSize(horizontal: false, vertical: true)
                             .matchedGeometryEffect(id: "Label", in: animation)
                     }
                     

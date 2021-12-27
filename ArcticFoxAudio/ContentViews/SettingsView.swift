@@ -18,6 +18,7 @@ struct SettingsView: View {
     
     // Miniplayer Properties...
     @State var expand = false
+    @State var playingImage = ""
     @Namespace var animation
     
     @EnvironmentObject var authProfile: AuthProfile
@@ -58,7 +59,7 @@ struct SettingsView: View {
         
         // Home View...
         VStack{
-            Miniplayer(animation: animation, expand: $expand).padding(.top, 1).background(.white)
+            Miniplayer(animation: animation, expand: $expand, playingImage: $playingImage).padding(.top, 1).background(.white)
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack(spacing: 18){

@@ -33,6 +33,7 @@ struct HomeView: View {
     
     // Miniplayer Properties...
     @State var expand = false
+    @State var playingImage = "https://firebasestorage.googleapis.com/v0/b/arcticfoxaudio-dev.appspot.com/o/Untitled%20design-41.png?alt=media&token=6898b01a-4aae-4921-96f9-0b2f1f23f244"
     @Namespace var animation
     
     @State var library_array = []
@@ -107,7 +108,7 @@ struct HomeView: View {
             
         } else if expand == true {
             
-            Miniplayer(animation: animation, expand: $expand)
+            Miniplayer(animation: animation, expand: $expand, playingImage: $playingImage)
             
         } else if search == true {
             
@@ -120,7 +121,7 @@ struct HomeView: View {
                     SideTabView()
                     
                     VStack{
-                        Miniplayer(animation: animation, expand: $expand).padding(.top, 1).background(.white)
+                        Miniplayer(animation: animation, expand: $expand, playingImage: $playingImage).padding(.top, 1).background(.white)
                     // Main Content...
                     ScrollView(showsIndicators: false, content: {
                         
@@ -162,7 +163,7 @@ struct HomeView: View {
                                 
                             }
                             
-                            Text("Recently Played")
+                            Text("Top Picks For You")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(.black)
@@ -273,7 +274,11 @@ struct HomeView: View {
                                     homecard in
                                     GeometryReader{proxy in
                                           HomeArt(homecard: homecard).aspectRatio(contentMode: .fill).onTapGesture {
-                                              expand.toggle()}.frame(width: proxy.frame(in: .global).width, height: 250)
+                                              globalProfile.playingImageURL = homecard.coverImage
+                                              globalProfile.playingTitle = homecard.title
+                                              playingImage = homecard.coverImage
+                                              expand.toggle()
+                                          }.frame(width: proxy.frame(in: .global).width, height: 250)
                                               // based on index number were changing the corner style...
                                             .clipShape(CustomCorners(corners: [.topLeft,.bottomLeft,.topRight,.bottomRight], radius: 15))
                                         
