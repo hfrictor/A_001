@@ -28,6 +28,7 @@ struct Miniplayer: View {
     
     @Binding var playingImage : String
     
+    
     var body: some View {
         
         VStack{

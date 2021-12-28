@@ -40,6 +40,7 @@ struct HomeView: View {
     @State var search = false
     @EnvironmentObject var globalProfile: GlobalProfile
     @EnvironmentObject var authProfile: AuthProfile
+    @EnvironmentObject var playerProfile: PlayerProfile
     @State var initials = ""
     
     @State var accountViewing = false
@@ -152,7 +153,7 @@ struct HomeView: View {
                                 
                             }
                             
-                            Text("Recently Played")
+                            Text("Picks For You")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(.black)
@@ -172,6 +173,9 @@ struct HomeView: View {
                                             RecentArt(recentcard: recentcard).aspectRatio(contentMode: .fill).onTapGesture {
                                                 globalProfile.playingImageURL = recentcard.coverImage
                                                 globalProfile.playingTitle = recentcard.title
+                                                //Add in the stuff for staging the audio files and also playing the ones already downloaded
+                                                // will probably have to be a new global function that you put together to make those two work.
+                                               // playerProfile.playClicked(audioFileURL: recentcard.)
                                                 playingImage = recentcard.coverImage
                                                 expand.toggle()
                                                 }.frame(width: proxy.frame(in: .global).width)
