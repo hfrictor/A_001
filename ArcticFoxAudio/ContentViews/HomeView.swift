@@ -9,7 +9,20 @@ import SwiftUI
 import Kingfisher
 import Firebase
 
+let globalProfile = GlobalProfile()
+let emailSaved = UserDefaults.standard.string(forKey: "Email") ?? ""
+
 struct HomeCard : Hashable {
+    var id = UUID()
+    var title : String
+    var author : String
+    var description : String
+    var pubDate : String
+    var coverImage : String
+    var afhCode : String
+}
+
+struct RecentCard : Hashable {
     var id = UUID()
     var title : String
     var author : String
@@ -35,31 +48,7 @@ struct HomeView: View {
     @State var expand = false
     @State var playingImage = "https://firebasestorage.googleapis.com/v0/b/arcticfoxaudio-dev.appspot.com/o/Untitled%20design-41.png?alt=media&token=6898b01a-4aae-4921-96f9-0b2f1f23f244"
     @Namespace var animation
-    
-    @State var library_array = []
 
-    
-    
-    func getLibrary(email: String) {
-            Firestore.firestore().collection("Users").document(email).getDocument {
-                (document, error) in
-                if let document = document {
-                    let library_array = document["userLibrary"] as? Array ?? [""]
-                    print(library_array)
-                    
-                    for title in library_array{
-                        //add the afh codes to an array for the home screen
-                        self.library_array.append(title)
-                }
-            }
-            
-        }
-    
-        DispatchQueue.main.async {
-            print("Successfully Fetched Library Info")
-            globalProfile.getbook()
-        }
-    }
  
     var body: some View {
         
@@ -163,7 +152,7 @@ struct HomeView: View {
                                 
                             }
                             
-                            Text("Top Picks For You")
+                            Text("Recently Played")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(.black)
@@ -173,63 +162,29 @@ struct HomeView: View {
                             // Carousel List...
                             TabView{
                                 
-                                ForEach(recentlyPlayed){item in
+                                ForEach(self.globalProfile.recentCard, id: \.self, content: {
+                                    recentcard in
                                     
                                     GeometryReader{proxy in
                                         
                                         ZStack(alignment: .bottomLeading){
                                             
-                                            Image(item.album_cover)
-                                                .resizable()
-                                                // if youre using fill then u must specify the width...
-                                                .aspectRatio(contentMode: .fill)
-                                                .frame(width: proxy.frame(in: .global).width)
-                                                .cornerRadius(20)
-                                            // dark shading at bottom so that the data will be visible...
-                                                .overlay(
-                                                
-                                                    LinearGradient(gradient: .init(colors: [Color.clear,Color.clear,Color.black]), startPoint: .top, endPoint: .bottom)
-                                                        .cornerRadius(20)
-                                                )
-                                                
-                                            
-                                            HStack(spacing: 15){
-                                                
-                                                Button(action: {
-                                                    expand.toggle()
-                                                }, label: {
-                                                    
-                                                    // Play Button..
-                                                    Image(systemName: "play.fill")
-                                                        .font(.title)
-                                                        .foregroundColor(.black)
-                                                        .padding(20)
-                                                        .background(Color("logoColor"))
-                                                        .clipShape(Circle())
-                                                })
-                                                
-                                                VStack(alignment: .leading, spacing: 5, content: {
-                                                    
-                                                    Text(item.album_name)
-                                                        .font(.title2)
-                                                        .fontWeight(.heavy)
-                                                        .foregroundColor(.black)
-                                                    
-                                                    Text(item.album_author)
-                                                        .font(.none)
-                                                        .fontWeight(.bold)
-                                                        .foregroundColor(.black)
-                                                })
-                                            }
-                                            .padding()
+                                            RecentArt(recentcard: recentcard).aspectRatio(contentMode: .fill).onTapGesture {
+                                                globalProfile.playingImageURL = recentcard.coverImage
+                                                globalProfile.playingTitle = recentcard.title
+                                                playingImage = recentcard.coverImage
+                                                expand.toggle()
+                                                }.frame(width: proxy.frame(in: .global).width)
+                                                 .cornerRadius(20)
+
                                         }
                                     }
                                     .padding(.horizontal)
-                                    .frame(height: 350)
-                                }
+                                    .frame(height: 550)
+                                })
                             }
                             // max Frame...
-                            .frame(height: 350)
+                            .frame(height: 550)
                             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                             .padding(.top,20)
                             
@@ -293,10 +248,13 @@ struct HomeView: View {
                     })
                     }
                 }.onAppear{
+                    
                     let letter_one = firstnameSaved[firstnameSaved.index(firstnameSaved.startIndex, offsetBy: 0)]
                     let letter_two = lastnameSaved[lastnameSaved.index(lastnameSaved.startIndex, offsetBy: 0)]
                     initials = "\(letter_one) \(letter_two)"
-                    getLibrary(email: emailSaved)
+                    globalProfile.getLibrary(email: emailSaved)
+                    globalProfile.getRecents(email: emailSaved)
+                    
                 }.background(Color("bg").ignoresSafeArea())
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
@@ -320,6 +278,18 @@ struct HomeArt: View {
     var body: some View {
         ZStack(alignment: .bottom, content: {
             let url = URL(string: homecard.coverImage)!
+            KFImage.url(url).resizable()
+        })
+    }
+    
+}
+
+
+struct RecentArt: View {
+    var recentcard : RecentCard
+    var body: some View {
+        ZStack(alignment: .bottom, content: {
+            let url = URL(string: recentcard.coverImage)!
             KFImage.url(url).resizable()
         })
     }

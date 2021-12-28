@@ -11,7 +11,7 @@ import SwiftAudioPlayer
 
 @main
 struct ArcticFoxAudioApp: App {
-    
+
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate 
     var body: some Scene {
         WindowGroup {
@@ -31,8 +31,8 @@ struct ArcticFoxAudioApp: App {
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
-        
-        //Add load function for users library
+        globalProfile.getRecents(email: emailSaved)
+        globalProfile.getLibrary(email: emailSaved)
         
         return true
     }

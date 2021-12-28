@@ -261,6 +261,7 @@ struct SplashScreen: View{
     
     @Environment(\.colorScheme) var scheme
     @EnvironmentObject var authProfile: AuthProfile
+    @EnvironmentObject var globalProfile: GlobalProfile
     
     @State var removeSplashScreen: Bool = false
     
@@ -302,7 +303,9 @@ struct SplashScreen: View{
                     .ignoresSafeArea()
             }
         }.onAppear{
+
             authProfile.loadUser(entered_email: emailSaved)
+            
         }.navigationBarTitle("")
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
@@ -313,7 +316,7 @@ struct SplashScreen: View{
             
             // Animating with slight delay of 0.4s...
             // for smooth animation...
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.1) {
                 
                 withAnimation(.easeInOut(duration: 0.3)){
                     splashAnimation.toggle()
