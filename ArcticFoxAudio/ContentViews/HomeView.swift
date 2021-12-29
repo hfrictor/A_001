@@ -153,6 +153,7 @@ struct HomeView: View {
                                 
                             }
                             
+                            
                             Text("Picks For You")
                                 .font(.title)
                                 .fontWeight(.bold)
