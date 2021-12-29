@@ -10,6 +10,7 @@ import Kingfisher
 import Firebase
 
 let globalProfile = GlobalProfile()
+let authProfile = AuthProfile()
 let emailSaved = UserDefaults.standard.string(forKey: "Email") ?? ""
 
 struct HomeCard : Hashable {

@@ -26,7 +26,7 @@ struct LoginView: View {
         
         NavigationView {
 
-            if emailSaved != nil && passwordSaved != nil {
+            if emailSaved != nil && passwordSaved != nil && authProfile.isSignedIn == true{
                 
                 SplashScreen().onAppear{
                     email = emailSaved ?? ""
@@ -303,8 +303,12 @@ struct SplashScreen: View{
                     .ignoresSafeArea()
             }
         }.onAppear{
-
-            authProfile.loadUser(entered_email: emailSaved)
+            if authProfile.signedIn == true {
+                authProfile.loadUser(entered_email: emailSaved)
+            } else {
+                print("No ellidable email saved on device.")
+            }
+            
             
         }.navigationBarTitle("")
             .navigationBarHidden(true)

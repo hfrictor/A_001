@@ -31,10 +31,15 @@ struct ArcticFoxAudioApp: App {
 }
 
 class AppDelegate: NSObject, UIApplicationDelegate {
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
-        globalProfile.getRecents(email: emailSaved)
-        globalProfile.getLibrary(email: emailSaved)
+        if authProfile.isSignedIn == true {
+            globalProfile.getRecents(email: emailSaved)
+            globalProfile.getLibrary(email: emailSaved)
+        } else {
+            print("NOT Signed In")
+        }
         
         return true
     }
