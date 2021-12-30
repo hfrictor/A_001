@@ -15,6 +15,12 @@ import SwiftAudioPlayer
 
 class PlayerProfile: ObservableObject {
     
+    @Published var chapters_audio = []
+    @Published var chapters_text = []
+    @Published var current_chapter = 0
+    @Published var current_time = "00:00"
+    @Published var current_book = ""
+    
     @Published var exitView: Bool = false
     
     @Published var durationLabel: String = ""
@@ -53,20 +59,22 @@ class PlayerProfile: ObservableObject {
             }
         }
     
-    func playClicked(audioFileURL: String) {
-        if audioFileURL != "" {
-            print(audioFileURL)
+    func playClicked() {
+        if self.chapters_audio[self.current_chapter] as! String != "" {
+            
+            print(self.chapters_audio[self.current_chapter])
             if self.playbackStatus == .playing {
                 SAPlayer.shared.pause()
             } else if self.playbackStatus == .paused {
                 SAPlayer.shared.play()
             } else {
-            let url = URL(string: audioFileURL)!
+                let url = URL(string: self.chapters_audio[self.current_chapter] as! String)!
             SAPlayer.shared.startRemoteAudio(withRemoteUrl: url)
             SAPlayer.shared.play()
             }
-        } else {
             
+        } else {
+            print("Error playing the file, check the playClicked() function")
         }
        
     }

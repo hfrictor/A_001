@@ -86,8 +86,11 @@ class GlobalProfile: ObservableObject {
                     let coverImage = document.data()["CoverImage"] as? String ?? "error"
                     let afhCode = document.data()["AFH_Code"] as? String ?? "error"
                     
+                    let chapterAudio = document.data()["ChaptersAudio"] as? Array ?? [""]
+                    let chapterText = document.data()["ChaptersText"] as? Array ?? [""]
                     
-                    self.homeCard.append(HomeCard(title: title, author: author, description: description, pubDate: pubDate, coverImage: coverImage, afhCode: afhCode))
+                    
+                    self.homeCard.append(HomeCard(title: title, author: author, description: description, pubDate: pubDate, coverImage: coverImage, afhCode: afhCode, chapterAudio: chapterAudio, chapterText: chapterText))
                 }
             } else {
                 print(error ?? "Error with the getbook() fucntion")
@@ -110,9 +113,12 @@ class GlobalProfile: ObservableObject {
                         let coverImage = document.data()["CoverImage"] as? String ?? "error"
                         let afhCode = document.data()["AFH_Code"] as? String ?? "error"
                         
+                        let chapterAudio = document.data()["ChaptersAudio"] as? Array ?? [""]
+                        let chapterText = document.data()["ChaptersText"] as? Array ?? [""]
+                        
                         self.arrayIndex = self.arrayIndex+1
                         
-                        self.recentCard.append(RecentCard(title: title, author: author, description: description, pubDate: pubDate, coverImage: coverImage, afhCode: afhCode))
+                        self.recentCard.append(RecentCard(title: title, author: author, description: description, pubDate: pubDate, coverImage: coverImage, afhCode: afhCode, chapterAudio: chapterAudio, chapterText: chapterText))
                     }
                 } else {
                     print(error ?? "Error with the getrecentbooks() function.")

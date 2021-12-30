@@ -14,6 +14,7 @@ struct Miniplayer: View {
     @Binding var expand : Bool
     @EnvironmentObject var globalProfile: GlobalProfile
     @EnvironmentObject var authProfile: AuthProfile
+    @EnvironmentObject var playerProfile: PlayerProfile
     
     var height = UIScreen.main.bounds.height / 3
     var safeArea = UIApplication.shared.windows.first?.safeAreaInsets
@@ -130,11 +131,11 @@ struct Miniplayer: View {
                       
 
                         HStack {
-                            Text("00:00").foregroundColor(.primary)
+                            Text(playerProfile.currentTimestampLabel).foregroundColor(.primary)
 
                                 Spacer()
 
-                            Text("00:00").foregroundColor(.primary)
+                            Text(playerProfile.durationLabel).foregroundColor(.primary)
                         }.font(.system(size: 14, weight: .semibold))
                
                 
@@ -142,17 +143,21 @@ struct Miniplayer: View {
                     
                     HStack {
                         
-                        Button {} label: {
+                        Button {playerProfile.skipBackward()} label: {
                             Image(systemName: "gobackward.15").resizable()
                         }.frame(width: 35, height: 35, alignment: .center).padding().foregroundColor(.primary.opacity(0.6))
                         
                         
-                        Button {playing.toggle()} label: {
-                            Image(systemName: playing ? "pause.circle.fill" : "play.circle.fill").resizable()
+                        Button {
+                            playerProfile.subscribeToChanges()
+                            playing.toggle()
+                            
+                        } label: {
+                            Image(systemName: playerProfile.playPauseButton ? "pause.circle.fill" : "play.circle.fill").resizable()
                         }.frame(width: 70, height: 70, alignment: .center).padding().foregroundColor(.primary)
                         
                         
-                        Button {} label: {
+                        Button {playerProfile.skipForward()} label: {
                             Image(systemName: "goforward.15").resizable()
                         }.frame(width: 35, height: 35, alignment: .center).padding().foregroundColor(.primary.opacity(0.6))
                         

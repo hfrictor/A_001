@@ -21,6 +21,8 @@ struct HomeCard : Hashable {
     var pubDate : String
     var coverImage : String
     var afhCode : String
+    var chapterAudio : [String]
+    var chapterText : [String]
 }
 
 struct RecentCard : Hashable {
@@ -31,6 +33,8 @@ struct RecentCard : Hashable {
     var pubDate : String
     var coverImage : String
     var afhCode : String
+    var chapterAudio : [String]
+    var chapterText : [String]
 }
 
 
@@ -175,6 +179,11 @@ struct HomeView: View {
                                             RecentArt(recentcard: recentcard).aspectRatio(contentMode: .fill).onTapGesture {
                                                 globalProfile.playingImageURL = recentcard.coverImage
                                                 globalProfile.playingTitle = recentcard.title
+                                                playerProfile.chapters_audio = recentcard.chapterAudio
+                                                playerProfile.chapters_text = recentcard.chapterText
+                                                playerProfile.current_chapter = 0
+                                                playerProfile.playClicked()
+                                                playerProfile.subscribeToChanges()
                                                 //Add in the stuff for staging the audio files and also playing the ones already downloaded
                                                 // will probably have to be a new global function that you put together to make those two work.
                                                // playerProfile.playClicked(audioFileURL: recentcard.)
