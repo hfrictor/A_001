@@ -130,6 +130,7 @@ struct Miniplayer: View {
                         LinearProgressViewStyle(tint: .primary))
                       
 
+                    
                         HStack {
                             Text(playerProfile.currentTimestampLabel).foregroundColor(.primary)
 
