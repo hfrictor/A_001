@@ -11,6 +11,9 @@ import SwiftUI
 import Firebase
 import FirebaseStorage
 import SwiftAudioPlayer
+import AVFoundation
+import AVFAudio
+import MediaPlayer
 
 
 class PlayerProfile: ObservableObject {
@@ -26,6 +29,8 @@ class PlayerProfile: ObservableObject {
     @Published var durationLabel: String = ""
     @Published var currentTimestampLabel: String = ""
     
+    @Published var volumeSlider: CGFloat = 0.5
+    @Published var speedSlider: CGFloat = 0.5
     
     @Published var scrubberSlider: Double = 0.0
     @Published var duration: Double = 0.0
@@ -60,23 +65,26 @@ class PlayerProfile: ObservableObject {
         }
     
     func playClicked() {
-        if self.chapters_audio[self.current_chapter] as! String != "" {
-            
-            print(self.chapters_audio[self.current_chapter])
-            if self.playbackStatus == .playing {
-                SAPlayer.shared.pause()
-            } else if self.playbackStatus == .paused {
+        if self.chapters_audio.count != 0 {
+            if self.chapters_audio[self.current_chapter] as! String != "" {
+                
+                print(self.chapters_audio[self.current_chapter])
+                if self.playbackStatus == .playing {
+                    SAPlayer.shared.pause()
+                } else if self.playbackStatus == .paused {
+                    SAPlayer.shared.play()
+                } else {
+                    let url = URL(string: self.chapters_audio[self.current_chapter] as! String)!
+                SAPlayer.shared.startRemoteAudio(withRemoteUrl: url)
                 SAPlayer.shared.play()
+                }
+                
             } else {
-                let url = URL(string: self.chapters_audio[self.current_chapter] as! String)!
-            SAPlayer.shared.startRemoteAudio(withRemoteUrl: url)
-            SAPlayer.shared.play()
+                print("Error playing the file, check the playClicked() function")
             }
-            
-        } else {
-            print("Error playing the file, check the playClicked() function")
-        }
-       
+    } else {
+        print("Nothing to play in chapters_audio")
+    }
     }
     
     func skipForward() {
@@ -86,7 +94,22 @@ class PlayerProfile: ObservableObject {
     func skipBackward() {
         SAPlayer.shared.skipBackwards()
     }
+    
+    func setSpeed() {
+        let speed = (self.speedSlider + 0.6)
+        print(speed)
+        if let node = SAPlayer.shared.audioModifiers[0] as? AVAudioUnitTimePitch {
+            node.rate = Float(speed)
+            SAPlayer.shared.playbackRateOfAudioChanged(rate: Float(speed))
+        } else {
+            print("Cannot change the speed of the audio. ( setSpeed() func )")
+        }
+    }
    
+    func setVolume() {
+        print(self.volumeSlider)
+        MPVolumeView.setVolume(Float(self.volumeSlider))
+    }
     
     func subscribeToChanges() {
         durationId = SAPlayer.Updates.Duration.subscribe { [weak self] (duration) in
@@ -158,4 +181,15 @@ class PlayerProfile: ObservableObject {
     }
     
         
+}
+
+extension MPVolumeView {
+    static func setVolume(_ volume: Float) {
+        let volumeView = MPVolumeView()
+        let slider = volumeView.subviews.first(where: { $0 is UISlider }) as? UISlider
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01) {
+            slider?.value = volume
+        }
+    }
 }

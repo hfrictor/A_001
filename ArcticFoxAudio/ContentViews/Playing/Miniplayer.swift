@@ -53,6 +53,10 @@ struct Miniplayer: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: expand ? height : 55, height: expand ? height : 55)
                         .cornerRadius(15)
+                        .onTapGesture(perform: {
+                            
+                            withAnimation(.spring()){expand = true}
+                        })
                 } else {
                     let url = URL(string: playingImage)!
                     KFImage.url(url)
@@ -60,6 +64,10 @@ struct Miniplayer: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: expand ? height : 55, height: expand ? height : 55)
                         .cornerRadius(15)
+                        .onTapGesture(perform: {
+                            
+                            withAnimation(.spring()){expand = true}
+                        })
                 }
                 
                 if !expand{
@@ -75,22 +83,35 @@ struct Miniplayer: View {
                 
                 if !expand{
                     
-                    Button(action: {}, label: {
-                        
-                        Image(systemName: "play.fill")
+                    Button(action: {
+                        playerProfile.skipBackward()
+                    }, label: {
+                        Image(systemName: "gobackward.30")
                             .font(.title2)
                             .foregroundColor(.primary)
                     })
                     
-                    Button(action: {}, label: {
+                    Button(action: {
+                        playerProfile.playClicked()
+                        playerProfile.subscribeToChanges()
+                        playing.toggle()
                         
-                        Image(systemName: "forward.fill")
+                    }, label: {
+                        Image(systemName: playerProfile.playPauseButton ? "pause.fill" : "play.fill")
+                            .font(.title2)
+                            .foregroundColor(.primary)
+                    })
+                    
+                    Button(action: {
+                        playerProfile.skipForward()
+                    }, label: {
+                        Image(systemName: "goforward.30")
                             .font(.title2)
                             .foregroundColor(.primary)
                     })
                 }
             }.onAppear{
-                if playingImage == nil {
+                if playingImage == "" {
                     playingImage = globalProfile.playingImageURL
                 }
             }.padding(.horizontal)
@@ -125,7 +146,7 @@ struct Miniplayer: View {
                 
                 // Live String...
                 VStack(){
-                    ProgressView(value: playingProgress, total: 9.0)
+                    ProgressView(value: playerProfile.scrubberSlider)
                       .progressViewStyle(
                         LinearProgressViewStyle(tint: .primary))
                       
@@ -145,11 +166,12 @@ struct Miniplayer: View {
                     HStack {
                         
                         Button {playerProfile.skipBackward()} label: {
-                            Image(systemName: "gobackward.15").resizable()
+                            Image(systemName: "gobackward.30").resizable()
                         }.frame(width: 35, height: 35, alignment: .center).padding().foregroundColor(.primary.opacity(0.6))
                         
                         
                         Button {
+                            playerProfile.playClicked()
                             playerProfile.subscribeToChanges()
                             playing.toggle()
                             
@@ -159,7 +181,7 @@ struct Miniplayer: View {
                         
                         
                         Button {playerProfile.skipForward()} label: {
-                            Image(systemName: "goforward.15").resizable()
+                            Image(systemName: "goforward.30").resizable()
                         }.frame(width: 35, height: 35, alignment: .center).padding().foregroundColor(.primary.opacity(0.6))
                         
                     }
@@ -168,7 +190,7 @@ struct Miniplayer: View {
                         
                         Image(systemName: "speaker.fill")
                         
-                        Slider(value: $volume)
+                        Slider(value: $playerProfile.volumeSlider, onEditingChanged: { editing in playerProfile.setVolume()})
                         
                         Image(systemName: "speaker.wave.2.fill")
                     }.padding()
@@ -178,7 +200,7 @@ struct Miniplayer: View {
                         
                         Image(systemName: "tortoise")
                         
-                        Slider(value: $playbackSpeed)
+                        Slider(value: $playerProfile.speedSlider, onEditingChanged: { editing in playerProfile.setSpeed()})
                         
                         Image(systemName: "hare")
                     }
