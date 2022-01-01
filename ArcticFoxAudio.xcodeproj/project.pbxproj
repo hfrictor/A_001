@@ -21,6 +21,7 @@
 		716464C0276923BC007F4D45 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464BF276923BC007F4D45 /* BlurView.swift */; };
 		716464C227693594007F4D45 /* FillerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464C127693594007F4D45 /* FillerView.swift */; };
 		716464C627693C10007F4D45 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716464C527693C10007F4D45 /* SearchView.swift */; };
+		71699CF827811A4100689F0C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71699CF727811A4100689F0C /* LoadingView.swift */; };
 		717249D5277AAF060009B119 /* PlayerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717249D4277AAF060009B119 /* PlayerProfile.swift */; };
 		7184FBD4275EDD7B0090D15A /* ArcticFoxAudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184FBD3275EDD7B0090D15A /* ArcticFoxAudioApp.swift */; };
 		7184FBD8275EDD7C0090D15A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7184FBD7275EDD7C0090D15A /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		716464BF276923BC007F4D45 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		716464C127693594007F4D45 /* FillerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillerView.swift; sourceTree = "<group>"; };
 		716464C527693C10007F4D45 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		71699CF727811A4100689F0C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		717249D4277AAF060009B119 /* PlayerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerProfile.swift; sourceTree = "<group>"; };
 		7184FBD0275EDD7B0090D15A /* ArcticFoxAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArcticFoxAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7184FBD3275EDD7B0090D15A /* ArcticFoxAudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcticFoxAudioApp.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				716464AA27655114007F4D45 /* splash.json */,
 				716464BB2766CC6D007F4D45 /* BarGraph.swift */,
 				716464BF276923BC007F4D45 /* BlurView.swift */,
+				71699CF727811A4100689F0C /* LoadingView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				716464B82766CC44007F4D45 /* Download.swift in Sources */,
 				716464C0276923BC007F4D45 /* BlurView.swift in Sources */,
 				716464AD2765768A007F4D45 /* resetPassView.swift in Sources */,
+				71699CF827811A4100689F0C /* LoadingView.swift in Sources */,
 				7184FBD4275EDD7B0090D15A /* ArcticFoxAudioApp.swift in Sources */,
 				7184FC0C275EE5190090D15A /* BookView.swift in Sources */,
 				716464C227693594007F4D45 /* FillerView.swift in Sources */,

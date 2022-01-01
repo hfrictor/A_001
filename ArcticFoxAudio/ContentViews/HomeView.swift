@@ -8,6 +8,7 @@
 import SwiftUI
 import Kingfisher
 import Firebase
+import SwiftAudioPlayer
 
 let globalProfile = GlobalProfile()
 let authProfile = AuthProfile()
@@ -55,6 +56,7 @@ struct HomeView: View {
     @State var initials = ""
     
     @State var accountViewing = false
+    @State private var shouldAnimate = false
     
     // Miniplayer Properties...
     @State var expand = false
@@ -127,7 +129,9 @@ struct HomeView: View {
             }
             
         } else if globalProfile.currentTab == "house.fill" {
-
+            
+            ZStack(alignment: .center){
+                
                 HStack(spacing: 0){
                     
                     SideTabView()
@@ -197,18 +201,30 @@ struct HomeView: View {
                                         ZStack(alignment: .bottomLeading){
                                             
                                             RecentArt(recentcard: recentcard).aspectRatio(contentMode: .fill).onTapGesture {
-                                                globalProfile.playingImageURL = recentcard.coverImage
-                                                globalProfile.playingTitle = recentcard.title
-                                                playerProfile.chapters_audio = recentcard.chapterAudio
-                                                playerProfile.chapters_text = recentcard.chapterText
-                                                playerProfile.current_chapter = 0
-                                                playerProfile.playClicked()
-                                                playerProfile.subscribeToChanges()
-                                                //Add in the stuff for staging the audio files and also playing the ones already downloaded
-                                                // will probably have to be a new global function that you put together to make those two work.
-                                               // playerProfile.playClicked(audioFileURL: recentcard.)
-                                                playingImage = recentcard.coverImage
-                                                expand.toggle()
+                                                    if recentcard.title != globalProfile.playingTitle {
+                                                        playerProfile.unsubscribeFromChanges()
+                                                        playerProfile.playbackStatus = .ended
+                                                        //SAPlayer.shared.clear()
+                                                        globalProfile.playingImageURL = recentcard.coverImage
+                                                        globalProfile.playingTitle = recentcard.title
+                                                        playerProfile.chapters_audio = recentcard.chapterAudio
+                                                        playerProfile.chapters_text = recentcard.chapterText
+                                                        playerProfile.current_chapter = 0
+                                                        playerProfile.playClicked()
+                                                        playerProfile.subscribeToChanges()
+                                                        playingImage = recentcard.coverImage
+                                                        expand.toggle()
+                                                    } else {
+                                                        globalProfile.playingImageURL = recentcard.coverImage
+                                                        globalProfile.playingTitle = recentcard.title
+                                                        playerProfile.chapters_audio = recentcard.chapterAudio
+                                                        playerProfile.chapters_text = recentcard.chapterText
+                                                        playerProfile.current_chapter = 0
+                                                        playerProfile.playClicked()
+                                                        playerProfile.subscribeToChanges()
+                                                        playingImage = recentcard.coverImage
+                                                        expand.toggle()
+                                                    }
                                                 }.frame(width: proxy.frame(in: .global).width)
                                                  .cornerRadius(20)
 
@@ -289,10 +305,16 @@ struct HomeView: View {
                     globalProfile.getLibrary(email: emailSaved)
                     globalProfile.getRecents(email: emailSaved)
                     
+                
+                    
                 }.background(Color("bg").ignoresSafeArea())
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
+                
+               LoadingView()
+                
+            }
 
         }
     }

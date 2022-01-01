@@ -40,6 +40,7 @@ class PlayerProfile: ObservableObject {
     @Published var beingSeeked: Bool = false
     @Published var loopEnabled = false
     @Published var playPauseButton: Bool = false
+    @Published var streamButton: Bool = false
     
     
     @Published var downloadId: UInt?
@@ -48,6 +49,7 @@ class PlayerProfile: ObservableObject {
     @Published var playingStatusId: UInt?
     @Published var queueId: UInt?
     @Published var elapsedId: UInt?
+    @Published var bufferProgress: Float?
 
 
     @Published var playbackStatus: SAPlayingStatus = .ended
@@ -75,8 +77,8 @@ class PlayerProfile: ObservableObject {
                     SAPlayer.shared.play()
                 } else {
                     let url = URL(string: self.chapters_audio[self.current_chapter] as! String)!
-                SAPlayer.shared.startRemoteAudio(withRemoteUrl: url)
-                SAPlayer.shared.play()
+                    SAPlayer.shared.startRemoteAudio(withRemoteUrl: url)
+                    SAPlayer.shared.play()
                 }
                 
             } else {
@@ -128,6 +130,19 @@ class PlayerProfile: ObservableObject {
             self.scrubberSlider = Double(Float(position/self.duration))
         }
         
+        bufferId = SAPlayer.Updates.StreamingBuffer.subscribe{ [weak self] (buffer) in
+                    guard let self = self else { return }
+                    
+                    self.bufferProgress = Float(buffer.bufferingProgress)
+                    
+                    if buffer.bufferingProgress >= 0.99 {
+                        self.streamButton = false
+                    } else {
+                        self.streamButton = true
+                    }
+                    
+                    self.isPlayable = buffer.isReadyForPlaying
+                }
         
         playingStatusId = SAPlayer.Updates.PlayingStatus.subscribe { [weak self] (playing) in
             guard let self = self else { return }
@@ -162,8 +177,6 @@ class PlayerProfile: ObservableObject {
     }
     
     func unsubscribeFromChanges() {
-        
-        
         
         guard let durationId = self.durationId,
               let elapsedId = self.elapsedId,

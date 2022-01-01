@@ -7,17 +7,28 @@
 
 import SwiftUI
 
-struct BlurView: UIViewRepresentable {
+//struct BlurView: UIViewRepresentable {
+//
+//    func makeUIView(context: Context) -> UIVisualEffectView {
+//
+//        let view = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterialLight))
+//
+//        return view
+//    }
+//
+//    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
+//
+//
+//    }
+//}
 
-    func makeUIView(context: Context) -> UIVisualEffectView {
-        
-        let view = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterialLight))
-        
-        return view
-    }
-    
-    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
-        
-        
+
+struct BlurView: View {
+    var body: some View {
+        Image("bg")
+            .resizable()
+            .scaledToFill()
+            .edgesIgnoringSafeArea(.all)
+            .blur(radius: 20)
     }
 }

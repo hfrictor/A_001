@@ -13,8 +13,3 @@ struct FillerView: View {
     }
 }
 
-struct FillerView_Previews: PreviewProvider {
-    static var previews: some View {
-        FillerView()
-    }
-}
