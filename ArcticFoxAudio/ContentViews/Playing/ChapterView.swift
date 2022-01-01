@@ -32,20 +32,17 @@ struct ChapterView: View {
             
             ForEach(self.globalProfile.chapterCard, id: \.self, content: {
                 chaptercard in
-                
-                GeometryReader{proxy in
                     
-                    VStack(alignment: .center){
+                    ZStack(alignment: .bottom){
                         
                         ChapterArt(chaptercard: chaptercard).aspectRatio(contentMode: .fill).onTapGesture {
                            
-                            }.frame(width: proxy.frame(in: .global).width)
-                             .cornerRadius(20)
-                        Spacer()
+                        }
                     }
-                }
                 .padding()
-                .frame(height: 20)
+                .frame(height: 50)
+                
+                Spacer()
             })
             
             }.navigationBarTitle("")
@@ -64,12 +61,11 @@ struct ChapterView: View {
 struct ChapterArt: View {
     var chaptercard : ChapterCard
     var body: some View {
-        ZStack(alignment: .bottom, content: {
+        VStack(alignment: .center, content: {
             Button(action: {
                 
             }, label: {
                 VStack() {
-                    Divider().background(Color.primary)
                     HStack() {
                         Text("Chapter ")
                             .font(.title)
@@ -86,8 +82,7 @@ struct ChapterArt: View {
                         Image(systemName: "chevron.right")
                             .font(.title2)
                             .foregroundColor(.primary)
-                    }.padding()
-                    Divider().background(Color.primary)
+                    }
                 }
             })
         })
