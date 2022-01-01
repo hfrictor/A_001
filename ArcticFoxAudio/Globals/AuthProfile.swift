@@ -24,6 +24,7 @@ class AuthProfile: ObservableObject {
     @Published var currentPassword = ""
     @Published var newPassword = ""
     @Published var email = ""
+    @Published var initials = ""
     
     @Published var userLibrary = []
     @Published var userRecents = []

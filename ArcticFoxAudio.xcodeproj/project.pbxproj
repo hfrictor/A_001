@@ -187,6 +187,14 @@
 			path = Playing;
 			sourceTree = "<group>";
 		};
+		717249D62780C7040009B119 /* Depreciated */ = {
+			isa = PBXGroup;
+			children = (
+				716464B52766BF68007F4D45 /* RecentlyView.swift */,
+			);
+			path = Depreciated;
+			sourceTree = "<group>";
+		};
 		7184FBC7275EDD7B0090D15A = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +220,7 @@
 		7184FBD2275EDD7B0090D15A /* ArcticFoxAudio */ = {
 			isa = PBXGroup;
 			children = (
+				717249D62780C7040009B119 /* Depreciated */,
 				716464B02766B751007F4D45 /* Globals */,
 				716464A727654908007F4D45 /* Helpers */,
 				7184FC14275F07420090D15A /* Model */,
@@ -258,7 +267,6 @@
 				7184FC07275EE4AC0090D15A /* SettingsView.swift */,
 				7184FC12275F07140090D15A /* SideTabView.swift */,
 				716464AE2766B43A007F4D45 /* BrowseView.swift */,
-				716464B52766BF68007F4D45 /* RecentlyView.swift */,
 				716464C527693C10007F4D45 /* SearchView.swift */,
 			);
 			path = ContentViews;

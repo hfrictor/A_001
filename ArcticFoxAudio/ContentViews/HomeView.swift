@@ -37,12 +37,18 @@ struct RecentCard : Hashable {
     var chapterText : [String]
 }
 
+struct ChapterCard : Hashable {
+    var id = UUID()
+    var title : Int
+    var chapterText : [String]
+    //Need to add in the opening and cosing text and audio
+}
+
+
 
 struct HomeView: View {
     
     // Search Text...
-    @State var searchText = ""
-    @State var search = false
     @EnvironmentObject var globalProfile: GlobalProfile
     @EnvironmentObject var authProfile: AuthProfile
     @EnvironmentObject var playerProfile: PlayerProfile
@@ -70,12 +76,12 @@ struct HomeView: View {
                 
                 // Main Content...
                 ScrollView(showsIndicators: false, content: {
-                    BrowseView()
+                    BrowseView(searchText: globalProfile.searchText)
                 })
                            
             }
             
-        } else if globalProfile.currentTab == "clock.fill" {
+        } else if globalProfile.currentTab == "book.fill" && expand == false{
             
             HStack(spacing: 0){
                 
@@ -83,7 +89,7 @@ struct HomeView: View {
                 
                 // Main Content...
                 ScrollView(showsIndicators: false, content: {
-                    RecentlyView()
+                    ChapterView()
                 })
                            
             }
@@ -105,11 +111,22 @@ struct HomeView: View {
             
             Miniplayer(animation: animation, expand: $expand, playingImage: $playingImage)
             
-        } else if search == true {
+        } else if globalProfile.search == true {
             
-            SearchView(searchText: searchText)
+            HStack(spacing: 0){
+                
+                SideTabView()
+                
+                // Main Content...
+                ScrollView(showsIndicators: false, content: {
+                    BrowseView(searchText: globalProfile.searchText).onAppear{
+                        globalProfile.currentTab = "safari.fill"
+                    }
+                })
+                           
+            }
             
-        } else {
+        } else if globalProfile.currentTab == "house.fill" {
 
                 HStack(spacing: 0){
                     
@@ -130,13 +147,13 @@ struct HomeView: View {
                                         .stroke(Color.black,lineWidth: 4)
                                         .frame(width: 25, height: 25)
                                     
-                                    TextField("Search...", text: $searchText)
+                                    TextField("Search...", text: $globalProfile.searchText)
                                     
                                     Spacer()
                                     
                                     Button(action: {
-                                        if searchText != "" {
-                                            search.toggle()
+                                        if globalProfile.searchText != "" {
+                                            globalProfile.search.toggle()
                                         } else {
                                             
                                         }
@@ -155,6 +172,9 @@ struct HomeView: View {
                                     .foregroundColor(Color("logoColor"))
                                     .frame(width:40)
                                     .padding(5)
+                                    .onAppear{
+                                        authProfile.initials = initials
+                                    }
                                 
                             }
                             
@@ -263,7 +283,6 @@ struct HomeView: View {
                     })
                     }
                 }.onAppear{
-                    
                     let letter_one = firstnameSaved[firstnameSaved.index(firstnameSaved.startIndex, offsetBy: 0)]
                     let letter_two = lastnameSaved[lastnameSaved.index(lastnameSaved.startIndex, offsetBy: 0)]
                     initials = "\(letter_one) \(letter_two)"

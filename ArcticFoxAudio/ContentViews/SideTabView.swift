@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SideTabView: View {
     // Storing Current Tab..
-    @State var selectedTab = "house.fill"
+    //@State var selectedTab = "house.fill"
     @EnvironmentObject var globalProfile: GlobalProfile
     
     
@@ -31,15 +31,13 @@ struct SideTabView: View {
             
             VStack{
                 
-                TabButton(image: "house.fill", selectedTab: $selectedTab)
+                TabButton(image: "house.fill", selectedTab: $globalProfile.currentTab)
                 
-                TabButton(image: "safari.fill", selectedTab: $selectedTab)
+                TabButton(image: "safari.fill", selectedTab: $globalProfile.currentTab)
                 
-                TabButton(image: "clock.fill", selectedTab: $selectedTab)
+                TabButton(image: "book.fill", selectedTab: $globalProfile.currentTab)
                 
-                TabButton(image: "gear", selectedTab: $selectedTab)
-            }.onAppear{
-                selectedTab = globalProfile.currentTab
+                TabButton(image: "gear", selectedTab: $globalProfile.currentTab)
             }
             // setting the tabs for half of the height so that remaining elements will get space....
             .frame(height: getRect().height / 2.3)

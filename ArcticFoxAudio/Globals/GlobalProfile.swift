@@ -11,6 +11,10 @@ import Firebase
 
 class GlobalProfile: ObservableObject {
     
+    @Published var searchText = ""
+    @Published var search = false
+    @Published var chaptersView = false
+    
     @Published var currentTab = "house.fill"
     @Published var clickedGenre = "Browse"
     
@@ -20,6 +24,7 @@ class GlobalProfile: ObservableObject {
 
     @Published var homeCard = [HomeCard]()
     @Published var recentCard = [RecentCard]()
+    @Published var chapterCard = [ChapterCard]()
     
     @State var arrayIndex = 0
     
@@ -88,9 +93,11 @@ class GlobalProfile: ObservableObject {
                     
                     let chapterAudio = document.data()["ChaptersAudio"] as? Array ?? [""]
                     let chapterText = document.data()["ChaptersText"] as? Array ?? [""]
+                    //Need to add in the opening and cosing text and audio
                     
                     
                     self.homeCard.append(HomeCard(title: title, author: author, description: description, pubDate: pubDate, coverImage: coverImage, afhCode: afhCode, chapterAudio: chapterAudio, chapterText: chapterText))
+                    self.chapterCard.append(ChapterCard(title: chapterText.count, chapterText: chapterText))
                 }
             } else {
                 print(error ?? "Error with the getbook() fucntion")
