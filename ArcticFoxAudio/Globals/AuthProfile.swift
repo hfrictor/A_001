@@ -32,6 +32,8 @@ class AuthProfile: ObservableObject {
     @Published var listeningTime = 0
     @Published var timePerBook = 0
     
+    @Published var resetEmail = ""
+    
     
     var isSignedIn: Bool {
         if Auth.auth().currentUser != nil {
@@ -172,12 +174,7 @@ class AuthProfile: ObservableObject {
         self.signedIn = false
   
     }
-    
-    
-    func checkSubscription() {
-        
-    }
-    
+
     func deleteUserAuth() {
         try? auth.signOut()
         
@@ -186,6 +183,13 @@ class AuthProfile: ObservableObject {
         defaults.set("", forKey: "Password")
         
         self.signedIn = false
+    }
+    
+    
+    func resetPassword() {
+        Auth.auth().sendPasswordReset(withEmail: resetEmail) { error in
+          print("Resetting Password")
+        }
     }
     
 }

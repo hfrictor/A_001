@@ -9,11 +9,12 @@ import SwiftUI
 
 struct resetPassView: View {
     
-    @State var email = ""
+    @EnvironmentObject var authProfile: AuthProfile
     
-    //@EnvironmentObject var authProfile: AuthProfile
+    @State private var showingAlert = false
     
     var body: some View {
+        
             VStack {
                 Image("logo")
                     .resizable()
@@ -23,7 +24,7 @@ struct resetPassView: View {
                 VStack {
                     
                     
-                    TextField("Email Address", text: $email)
+                    TextField("Email Address", text: $authProfile.resetEmail)
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
                         .padding()
@@ -32,20 +33,23 @@ struct resetPassView: View {
                     
                     
                     Button (action: {
-                        guard !email.isEmpty else {
+                        guard !authProfile.resetEmail.isEmpty else {
                             return
                         }
                         
-                        
+                        authProfile.resetPassword()
+                        showingAlert.toggle()
                         
                     }, label: {
                         Text("Send Reset Instructions")
                             .foregroundColor(Color.white)
                             .frame(width: 200, height: 50)
-                            .background(Color.blue)
+                            .background(Color("logoColor"))
                             .cornerRadius(8)
                         
-                    })
+                    }).alert("Email with reset instructions has been sent to \(authProfile.resetEmail). Contact support if you have other problems signing in.", isPresented: $showingAlert) {
+                        Button("OK", role: .cancel) { }
+                    }
                     
                 }
                 .padding()

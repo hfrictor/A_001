@@ -11,10 +11,7 @@ struct SideTabView: View {
     // Storing Current Tab..
     //@State var selectedTab = "house.fill"
     @EnvironmentObject var globalProfile: GlobalProfile
-    
-    
-    // Volume...
-    @State var volume: CGFloat = 0.4
+    @EnvironmentObject var playerProfile: PlayerProfile
     
     // Hide Side Tab Bar...
     @State var showSideBar = false
@@ -47,7 +44,7 @@ struct SideTabView: View {
             
             Button(action: {
                 // checking and increasing volume...
-                volume = volume + 0.1 < 1.0 ? volume + 0.1 : 1
+                playerProfile.volumeSlider = playerProfile.volumeSlider + 0.1 < 1.0 ? playerProfile.volumeSlider + 0.1 : 1
             }, label: {
                 Image(systemName: "speaker.wave.2.fill")
                     .font(.title2)
@@ -59,7 +56,7 @@ struct SideTabView: View {
                 
                 // extracing progress bar height and based on that getting progress value...
                 let height = proxy.frame(in: .global).height
-                let progress = height * volume
+                let progress = height * playerProfile.volumeSlider
                 
                 ZStack(alignment: .bottom){
                     
@@ -77,7 +74,7 @@ struct SideTabView: View {
             
             Button(action: {
                 // checking and decreasing volume...
-                volume = volume - 0.1 > 0 ? volume - 0.1 : 0
+                playerProfile.volumeSlider = playerProfile.volumeSlider - 0.1 > 0 ? playerProfile.volumeSlider - 0.1 : 0
             }, label: {
                 Image(systemName: "speaker.wave.1.fill")
                     .font(.title2)

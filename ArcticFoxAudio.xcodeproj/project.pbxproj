@@ -174,7 +174,6 @@
 			children = (
 				7184FBFD275EE3FA0090D15A /* SignUpView.swift */,
 				7184FBFF275EE40A0090D15A /* LoginView.swift */,
-				7184FC01275EE44C0090D15A /* ForgotPasswordView.swift */,
 				7184FC03275EE4780090D15A /* OnboardingView.swift */,
 				716464AC2765768A007F4D45 /* resetPassView.swift */,
 			);
@@ -194,9 +193,9 @@
 		717249D62780C7040009B119 /* Depreciated */ = {
 			isa = PBXGroup;
 			children = (
+				7184FC01275EE44C0090D15A /* ForgotPasswordView.swift */,
 				716464C527693C10007F4D45 /* SearchView.swift */,
 				716464C127693594007F4D45 /* FillerView.swift */,
-				7184FC0B275EE5190090D15A /* BookView.swift */,
 				716464B52766BF68007F4D45 /* RecentlyView.swift */,
 			);
 			path = Depreciated;
@@ -274,6 +273,7 @@
 				7184FC07275EE4AC0090D15A /* SettingsView.swift */,
 				7184FC12275F07140090D15A /* SideTabView.swift */,
 				716464AE2766B43A007F4D45 /* BrowseView.swift */,
+				7184FC0B275EE5190090D15A /* BookView.swift */,
 			);
 			path = ContentViews;
 			sourceTree = "<group>";
