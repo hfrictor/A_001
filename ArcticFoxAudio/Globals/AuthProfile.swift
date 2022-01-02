@@ -98,6 +98,7 @@ class AuthProfile: ObservableObject {
                         self.firstname = data["firstname"] as? String ?? ""
                         self.lastname = data["lastname"] as? String ?? ""
                         self.newPassword = data["newPassword"] as? String ?? ""
+                        self.email = data["email"] as? String ?? ""
                         
                         self.userLibrary = data["userLibrary"] as? Array ?? [""]
                         self.userRecents = data["userRecents"] as? Array ?? [""]

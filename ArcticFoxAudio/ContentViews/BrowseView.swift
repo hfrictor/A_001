@@ -15,6 +15,8 @@ struct BrowseView: View {
     @EnvironmentObject var authProfile: AuthProfile
     @EnvironmentObject var playerProfile: PlayerProfile
     
+    @State private var showingSheet = false
+    
     // Miniplayer Properties...
     @State var expand = false
     @State var playingImage = ""
@@ -79,33 +81,20 @@ struct BrowseView: View {
                     searchcard in
                     GeometryReader{proxy in
                           SearchArt(searchcard: searchcard).aspectRatio(contentMode: .fill).onTapGesture {
-                              if searchcard.title != globalProfile.playingTitle {
-                                  playerProfile.unsubscribeFromChanges()
-                                  playerProfile.playbackStatus = .ended
-                                  //SAPlayer.shared.clear()
-                                  globalProfile.playingImageURL = searchcard.coverImage
-                                  globalProfile.playingTitle = searchcard.title
-                                  playerProfile.chapters_audio = searchcard.chapterAudio
-                                  playerProfile.chapters_text = searchcard.chapterText
-                                  playerProfile.current_chapter = 0
-                                  playerProfile.playClicked()
-                                  playerProfile.subscribeToChanges()
-                                  playingImage = searchcard.coverImage
-                                  expand.toggle()
-                              } else {
-                                  globalProfile.playingImageURL = searchcard.coverImage
-                                  globalProfile.playingTitle = searchcard.title
-                                  playerProfile.chapters_audio = searchcard.chapterAudio
-                                  playerProfile.chapters_text = searchcard.chapterText
-                                  playerProfile.current_chapter = 0
-                                  playerProfile.playClicked()
-                                  playerProfile.subscribeToChanges()
-                                  playingImage = searchcard.coverImage
-                                  expand.toggle()
-                              }
+                              globalProfile.browseImageURL = searchcard.coverImage
+                              globalProfile.browseUrl = searchcard.chapterAudio[0]
+                              globalProfile.browseTitle = searchcard.title
+                              globalProfile.browseAuthor = searchcard.author
+                              globalProfile.browseDescription = searchcard.description
+                              globalProfile.browseCode = searchcard.afhCode
+                              showingSheet.toggle()
+                              
                           }.frame(width: proxy.frame(in: .global).width, height: 250)
                               // based on index number were changing the corner style...
                             .clipShape(CustomCorners(corners: [.topLeft,.bottomLeft,.topRight,.bottomRight], radius: 15))
+                            .sheet(isPresented: $showingSheet) {
+                                        BookView()
+                            }
                         
                     }.frame(height: 250)
                     

@@ -29,6 +29,13 @@ class GlobalProfile: ObservableObject {
     @Published var playingImageURL = "https://firebasestorage.googleapis.com/v0/b/arcticfoxaudio-dev.appspot.com/o/Untitled%20design-41.png?alt=media&token=6898b01a-4aae-4921-96f9-0b2f1f23f244"
     @Published var playingTitle = "Click a Title to Play"
     @Published var playingUrl = ""
+    
+    @Published var browseImageURL = "https://firebasestorage.googleapis.com/v0/b/arcticfoxaudio-dev.appspot.com/o/Untitled%20design-41.png?alt=media&token=6898b01a-4aae-4921-96f9-0b2f1f23f244"
+    @Published var browseTitle = "Click a Title to Play"
+    @Published var browseUrl = ""
+    @Published var browseAuthor = ""
+    @Published var browseDescription = ""
+    @Published var browseCode = ""
 
     @Published var homeCard = [HomeCard]()
     @Published var recentCard = [RecentCard]()
@@ -95,7 +102,7 @@ class GlobalProfile: ObservableObject {
                 for document in snapshot!.documents {
                     let title = document.data()["Title"] as? String ?? "error"
                     let author = document.data()["Author"] as? String ?? "error"
-                    let description = document.data()["Description"] as? String ?? "error"
+                    let description = document.data()["BookDescription"] as? String ?? "error"
                     let pubDate = document.data()["PublicationDate"] as? String ?? "error"
                     let coverImage = document.data()["CoverImage"] as? String ?? "error"
                     let afhCode = document.data()["AFH_Code"] as? String ?? "error"
@@ -124,7 +131,7 @@ class GlobalProfile: ObservableObject {
                     for document in snapshot!.documents {
                         let title = document.data()["Title"] as? String ?? "error"
                         let author = document.data()["Author"] as? String ?? "error"
-                        let description = document.data()["Description"] as? String ?? "error"
+                        let description = document.data()["BookDescription"] as? String ?? "error"
                         let pubDate = document.data()["PublicationDate"] as? String ?? "error"
                         let coverImage = document.data()["CoverImage"] as? String ?? "error"
                         let afhCode = document.data()["AFH_Code"] as? String ?? "error"
@@ -153,7 +160,7 @@ class GlobalProfile: ObservableObject {
                 for document in snapshot!.documents {
                     let title = document.data()["Title"] as? String ?? "error"
                     let author = document.data()["Author"] as? String ?? "error"
-                    let description = document.data()["Description"] as? String ?? "error"
+                    let description = document.data()["BookDescription"] as? String ?? "error"
                     let pubDate = document.data()["PublicationDate"] as? String ?? "error"
                     let coverImage = document.data()["CoverImage"] as? String ?? "error"
                     let afhCode = document.data()["AFH_Code"] as? String ?? "error"
@@ -182,7 +189,7 @@ class GlobalProfile: ObservableObject {
                 for document in snapshot!.documents {
                     let title = document.data()["Title"] as? String ?? "error"
                     let author = document.data()["Author"] as? String ?? "error"
-                    let description = document.data()["Description"] as? String ?? "error"
+                    let description = document.data()["BookDescription"] as? String ?? "error"
                     let pubDate = document.data()["PublicationDate"] as? String ?? "error"
                     let coverImage = document.data()["CoverImage"] as? String ?? "error"
                     let afhCode = document.data()["AFH_Code"] as? String ?? "error"
