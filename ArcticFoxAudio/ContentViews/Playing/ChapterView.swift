@@ -84,7 +84,7 @@ struct ChapterView: View {
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
                 .onDisappear{
-                    globalProfile.clickedGenre = "For You"
+                    globalProfile.clickedGenre = "Search"
                 }
             }
            

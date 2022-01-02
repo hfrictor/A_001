@@ -38,6 +38,19 @@ struct RecentCard : Hashable {
     var chapterText : [String]
 }
 
+
+struct SearchCard : Hashable {
+    var id = UUID()
+    var title : String
+    var author : String
+    var description : String
+    var pubDate : String
+    var coverImage : String
+    var afhCode : String
+    var chapterAudio : [String]
+    var chapterText : [String]
+}
+
 struct ChapterCard : Hashable {
     var id = UUID()
     var title : Int
@@ -158,6 +171,7 @@ struct HomeView: View {
                                     Button(action: {
                                         if globalProfile.searchText != "" {
                                             globalProfile.search.toggle()
+                                            globalProfile.searchBook()
                                         } else {
                                             
                                         }
@@ -361,6 +375,18 @@ struct RecentArt: View {
     var body: some View {
         ZStack(alignment: .bottom, content: {
             let url = URL(string: recentcard.coverImage)!
+            KFImage.url(url).resizable()
+        })
+    }
+    
+}
+
+
+struct SearchArt: View {
+    var searchcard : SearchCard
+    var body: some View {
+        ZStack(alignment: .bottom, content: {
+            let url = URL(string: searchcard.coverImage)!
             KFImage.url(url).resizable()
         })
     }

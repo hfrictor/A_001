@@ -75,21 +75,44 @@ struct BrowseView: View {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(),spacing: 10), count: 2), spacing: 10, content: {
 
                 // Liked Songs...
-                ForEach(likedSongs.indices,id: \.self){index in
-                    
+                ForEach(self.globalProfile.searchCard, id: \.self, content: {
+                    searchcard in
                     GeometryReader{proxy in
+                          SearchArt(searchcard: searchcard).aspectRatio(contentMode: .fill).onTapGesture {
+                              if searchcard.title != globalProfile.playingTitle {
+                                  playerProfile.unsubscribeFromChanges()
+                                  playerProfile.playbackStatus = .ended
+                                  //SAPlayer.shared.clear()
+                                  globalProfile.playingImageURL = searchcard.coverImage
+                                  globalProfile.playingTitle = searchcard.title
+                                  playerProfile.chapters_audio = searchcard.chapterAudio
+                                  playerProfile.chapters_text = searchcard.chapterText
+                                  playerProfile.current_chapter = 0
+                                  playerProfile.playClicked()
+                                  playerProfile.subscribeToChanges()
+                                  playingImage = searchcard.coverImage
+                                  expand.toggle()
+                              } else {
+                                  globalProfile.playingImageURL = searchcard.coverImage
+                                  globalProfile.playingTitle = searchcard.title
+                                  playerProfile.chapters_audio = searchcard.chapterAudio
+                                  playerProfile.chapters_text = searchcard.chapterText
+                                  playerProfile.current_chapter = 0
+                                  playerProfile.playClicked()
+                                  playerProfile.subscribeToChanges()
+                                  playingImage = searchcard.coverImage
+                                  expand.toggle()
+                              }
+                          }.frame(width: proxy.frame(in: .global).width, height: 250)
+                              // based on index number were changing the corner style...
+                            .clipShape(CustomCorners(corners: [.topLeft,.bottomLeft,.topRight,.bottomRight], radius: 15))
                         
-                        Image(likedSongs[index].album_cover)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: proxy.frame(in: .global).width, height: 150)
-                            // based on index number were changing the corner style...
-                            .clipShape(CustomCorners(corners: index % 2 == 0 ? [.topLeft,.bottomLeft] : [.topRight,.bottomRight], radius: 15))
-                    }
-                    .frame(height: 150)
-                }
+                    }.frame(height: 250)
+                    
+                })
             }).padding(.horizontal)
              .padding(.top,20)
+            
         }.navigationBarTitle("")
          .navigationBarHidden(true)
          .navigationBarBackButtonHidden(true)
