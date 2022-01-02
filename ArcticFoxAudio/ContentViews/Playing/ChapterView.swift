@@ -27,23 +27,42 @@ struct ChapterView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.black)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.top,30)
                 .padding(.leading,15)
             
-            ForEach(self.globalProfile.chapterCard, id: \.self, content: {
-                chaptercard in
-                    
+            ForEach(0..<playerProfile.chapters_text.count){ i in
+                
                     ZStack(alignment: .bottom){
-                        
-                        ChapterArt(chaptercard: chaptercard).aspectRatio(contentMode: .fill).onTapGesture {
-                           
+                        VStack(alignment: .center, content: {
+                                    HStack() {
+                                        Text("Chapter ")
+                                            .font(.title)
+                                            .fontWeight(.bold)
+                                            .foregroundColor(.black)
+                                        
+                                        Text(String(i+1))
+                                            .font(.title)
+                                            .fontWeight(.bold)
+                                            .foregroundColor(.black)
+                                        
+                                        Spacer()
+                                        
+                                        Image(systemName: "chevron.right")
+                                            .font(.title2)
+                                            .foregroundColor(.primary)
+                                    }.onAppear{
+                                        globalProfile.chapterIndex = globalProfile.chapterIndex+1
+                                    }
+                        }).onTapGesture {
+                            globalProfile.currentTextURL = playerProfile.chapters_text[i] as! String
+                            globalProfile.getText(someurl: globalProfile.currentTextURL)
+                            globalProfile.chapterIndex = i
                         }
                     }
                 .padding()
                 .frame(height: 50)
                 
                 Spacer()
-            })
+            }
             
             }.navigationBarTitle("")
             .navigationBarHidden(true)
@@ -55,38 +74,3 @@ struct ChapterView: View {
            
         }
 }
-    
-
-
-struct ChapterArt: View {
-    var chaptercard : ChapterCard
-    var body: some View {
-        VStack(alignment: .center, content: {
-            Button(action: {
-                
-            }, label: {
-                VStack() {
-                    HStack() {
-                        Text("Chapter ")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(.black)
-                        
-                        Text(String(chaptercard.title))
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(.black)
-                        
-                        Spacer()
-                        
-                        Image(systemName: "chevron.right")
-                            .font(.title2)
-                            .foregroundColor(.primary)
-                    }
-                }
-            })
-        })
-    }
-    
-}
-

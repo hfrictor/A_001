@@ -17,11 +17,12 @@ struct LoginView: View {
     @State var password = ""
     
     @EnvironmentObject var authProfile: AuthProfile
+    @EnvironmentObject var globalProfile: GlobalProfile
     
     var body: some View {
         
         let defaults = UserDefaults.standard
-        let emailSaved = defaults.string(forKey: "Email")
+        let emailSaved = defaults.string(forKey: "Email") ?? ""
         let passwordSaved = defaults.string(forKey: "Password")
         
         NavigationView {
@@ -29,8 +30,9 @@ struct LoginView: View {
             if emailSaved != nil && passwordSaved != nil && authProfile.isSignedIn == true{
                 
                 SplashScreen().onAppear{
-                    email = emailSaved ?? ""
-                    authProfile.loadUser(entered_email: email)
+                    authProfile.loadUser(entered_email: emailSaved)
+                    globalProfile.getLibrary(email: emailSaved)
+                    globalProfile.getRecents(email: emailSaved)
                 }
                 
             } else if isSignedUp == false{

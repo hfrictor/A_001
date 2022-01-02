@@ -9,34 +9,36 @@ import SwiftUI
 
 struct LoadingView: View {
     
-    let timer = Timer.publish(every: 1.6, on: .main, in: .common).autoconnect()
-    @State var leftOffset: CGFloat = -100
-    @State var rightOffset: CGFloat = 100
+    @EnvironmentObject var globalProfile: GlobalProfile
+    @EnvironmentObject var authProfile: AuthProfile
+    @EnvironmentObject var playerProfile: PlayerProfile
     
-    var body: some View {
-        ZStack {
+    @State private var shouldAnimate = false
+        
+        var body: some View {
             Circle()
-                .fill(Color("logoColor"))
-                .frame(width: 20, height: 20)
-                .offset(x: leftOffset)
-                .opacity(0.7)
-                .animation(Animation.easeInOut(duration: 1))
-            Circle()
-                .fill(Color("logoColor"))
-                .frame(width: 20, height: 20)
-                .offset(x: leftOffset)
-                .opacity(0.7)
-                .animation(Animation.easeInOut(duration: 1).delay(0.2))
-            Circle()
-                .fill(Color("logoColor"))
-                .frame(width: 20, height: 20)
-                .offset(x: leftOffset)
-                .opacity(0.7)
-                .animation(Animation.easeInOut(duration: 1).delay(0.4))
+                .fill(Color.blue)
+                .frame(width: 30, height: 30)
+                .overlay(
+                    ZStack {
+                        Circle()
+                            .stroke(Color.blue, lineWidth: 100)
+                            .scaleEffect(shouldAnimate ? 1 : 0)
+                        Circle()
+                            .stroke(Color.blue, lineWidth: 100)
+                            .scaleEffect(shouldAnimate ? 1.5 : 0)
+                        Circle()
+                            .stroke(Color.blue, lineWidth: 100)
+                            .scaleEffect(shouldAnimate ? 2 : 0)
+                    }
+                    .opacity(shouldAnimate ? 0.0 : 0.2)
+                    .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: false))
+            )
+            .onAppear {
+                if playerProfile.streamButton == false {
+                self.shouldAnimate = true
+                }
+            }
         }
-        .onReceive(timer) { (_) in
-            swap(&self.leftOffset, &self.rightOffset)
-        }
-    }
     
 }

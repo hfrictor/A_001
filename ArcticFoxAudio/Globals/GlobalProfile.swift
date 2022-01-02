@@ -15,6 +15,13 @@ class GlobalProfile: ObservableObject {
     @Published var search = false
     @Published var chaptersView = false
     
+    //Variables for reading the book
+    @Published var currentText = ""
+    @Published var nextText = ""
+    @Published var currentTextURL = ""
+    @Published var nextTextURL = ""
+    @Published var chapterIndex = 1
+    
     @Published var currentTab = "house.fill"
     @Published var clickedGenre = "Browse"
     
@@ -97,7 +104,7 @@ class GlobalProfile: ObservableObject {
                     
                     
                     self.homeCard.append(HomeCard(title: title, author: author, description: description, pubDate: pubDate, coverImage: coverImage, afhCode: afhCode, chapterAudio: chapterAudio, chapterText: chapterText))
-                    self.chapterCard.append(ChapterCard(title: chapterText.count, chapterText: chapterText))
+                    self.chapterCard.append(ChapterCard(title: chapterAudio.count, chapterText: chapterText))
                 }
             } else {
                 print(error ?? "Error with the getbook() fucntion")
@@ -133,5 +140,24 @@ class GlobalProfile: ObservableObject {
             }
         
     }
+    
+    
+    
+    func getText(someurl: String) {
+        if let url = URL(string: someurl) {
+            do {
+                let contents = try String(contentsOf: url)
+                print(contents)
+                self.currentText = contents
+            } catch {
+                print("Cant load from firebase.")
+            }
+        } else {
+            print("Dont have a good URL")
+        }
+    }
  
+    
+    
 }
+

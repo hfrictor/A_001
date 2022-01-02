@@ -135,7 +135,7 @@ class PlayerProfile: ObservableObject {
                     
                     self.bufferProgress = Float(buffer.bufferingProgress)
                     
-                    if buffer.bufferingProgress >= 0.99 {
+                    if buffer.bufferingProgress >= 0.79 {
                         self.streamButton = false
                     } else {
                         self.streamButton = true

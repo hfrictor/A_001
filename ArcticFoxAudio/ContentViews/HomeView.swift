@@ -302,17 +302,12 @@ struct HomeView: View {
                     let letter_one = firstnameSaved[firstnameSaved.index(firstnameSaved.startIndex, offsetBy: 0)]
                     let letter_two = lastnameSaved[lastnameSaved.index(lastnameSaved.startIndex, offsetBy: 0)]
                     initials = "\(letter_one) \(letter_two)"
-                    globalProfile.getLibrary(email: emailSaved)
-                    globalProfile.getRecents(email: emailSaved)
-                    
-                
-                    
+
                 }.background(Color("bg").ignoresSafeArea())
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
                 
-               LoadingView()
                 
             }
 
