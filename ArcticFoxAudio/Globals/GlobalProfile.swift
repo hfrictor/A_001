@@ -173,6 +173,35 @@ class GlobalProfile: ObservableObject {
     
     
     
+    
+    func searchGenre() {
+        let searchingGenre = self.clickedGenre
+        
+        Firestore.firestore().collection(searchingGenre).limit(to: 14).getDocuments { (snapshot, error) in
+            if error == nil {
+                for document in snapshot!.documents {
+                    let title = document.data()["Title"] as? String ?? "error"
+                    let author = document.data()["Author"] as? String ?? "error"
+                    let description = document.data()["Description"] as? String ?? "error"
+                    let pubDate = document.data()["PublicationDate"] as? String ?? "error"
+                    let coverImage = document.data()["CoverImage"] as? String ?? "error"
+                    let afhCode = document.data()["AFH_Code"] as? String ?? "error"
+                    
+                    let chapterAudio = document.data()["ChaptersAudio"] as? Array ?? [""]
+                    let chapterText = document.data()["ChaptersText"] as? Array ?? [""]
+                    //Need to add in the opening and cosing text and audio
+                    
+                    
+                    self.searchCard.append(SearchCard(title: title, author: author, description: description, pubDate: pubDate, coverImage: coverImage, afhCode: afhCode, chapterAudio: chapterAudio, chapterText: chapterText))
+                }
+            } else {
+                print(error ?? "Error with the searchGenre() fucntion")
+            }
+        }
+    }
+    
+    
+    
     func getText(someurl: String) {
         if let url = URL(string: someurl) {
             do {

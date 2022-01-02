@@ -51,6 +51,7 @@ struct SearchCard : Hashable {
     var chapterText : [String]
 }
 
+
 struct ChapterCard : Hashable {
     var id = UUID()
     var title : Int
@@ -267,6 +268,7 @@ struct HomeView: View {
                                     Button(action: {
                                         globalProfile.currentTab = "safari.fill"
                                         globalProfile.clickedGenre = genre
+                                        globalProfile.searchGenre()
                                     }, label: {
                                         Text(genre)
                                             .fontWeight(.semibold)
