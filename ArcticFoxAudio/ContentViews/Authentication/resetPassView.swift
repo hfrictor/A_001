@@ -16,7 +16,7 @@ struct resetPassView: View {
     var body: some View {
         
             VStack {
-                Image("logo")
+                Image("LogoFox")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200, height: 200)

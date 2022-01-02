@@ -158,46 +158,62 @@ struct LoginView: View {
                                     }
                                     .padding(.vertical,10)
                                     
-                                    HStack(spacing: 20){
+                                    ZStack() {
+                                    
+                                        HStack(spacing: 20){
+                                            
+                                            Button(action: {}, label: {
+                                                
+                                                HStack(spacing: 10){
+                                                    
+                                                    Image("fb")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(width: 25, height: 25)
+                                                    
+                                                    Text("Facebook")
+                                                        .fontWeight(.bold)
+                                                        .foregroundColor(.white)
+                                                }
+                                                .padding(.vertical,10)
+                                                .frame(width: (UIScreen.main.bounds.width - 80) / 2)
+                                                .background(Color("fb"))
+                                                .clipShape(Capsule())
+                                            })
+                                            
+                                            Button(action: {}, label: {
+                                                
+                                                HStack(spacing: 10){
+                                                    
+                                                    Image("google")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(width: 25, height: 25)
+                                                    
+                                                    Text("Google")
+                                                        .fontWeight(.bold)
+                                                        .foregroundColor(.white)
+                                                }
+                                                .padding(.vertical,10)
+                                                .frame(width: (UIScreen.main.bounds.width - 80) / 2)
+                                                .background(Color("google"))
+                                                .clipShape(Capsule())
+                                            })
+                                        }
                                         
                                         Button(action: {}, label: {
-                                            
-                                            HStack(spacing: 10){
-                                                
-                                                Image("fb")
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: .fit)
-                                                    .frame(width: 25, height: 25)
-                                                
-                                                Text("Facebook")
-                                                    .fontWeight(.bold)
-                                                    .foregroundColor(.white)
-                                            }
-                                            .padding(.vertical,10)
-                                            .frame(width: (UIScreen.main.bounds.width - 80) / 2)
-                                            .background(Color("fb"))
-                                            .clipShape(Capsule())
+                                            Text("COMING SOON")
+                                                .fontWeight(.bold)
+                                                .foregroundColor(.white)
+                                                .padding(.vertical,10)
+                                                .frame(width: UIScreen.main.bounds.width - 60)
+                                                .background(Color("DarkGrey"))
+                                                .opacity(0.8)
+                                                .clipShape(Capsule())
                                         })
                                         
-                                        Button(action: {}, label: {
-                                            
-                                            HStack(spacing: 10){
-                                                
-                                                Image("google")
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: .fit)
-                                                    .frame(width: 25, height: 25)
-                                                
-                                                Text("Google")
-                                                    .fontWeight(.bold)
-                                                    .foregroundColor(.white)
-                                            }
-                                            .padding(.vertical,10)
-                                            .frame(width: (UIScreen.main.bounds.width - 80) / 2)
-                                            .background(Color("google"))
-                                            .clipShape(Capsule())
-                                        })
-                                    }
+                                        
+                                }
                                     NavigationLink("Need Help Signing in? Reset Password", destination: resetPassView())
                                         .padding()
                                 }
