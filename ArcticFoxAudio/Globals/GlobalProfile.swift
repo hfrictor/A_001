@@ -14,6 +14,7 @@ class GlobalProfile: ObservableObject {
     @Published var searchText = ""
     @Published var search = false
     @Published var chaptersView = false
+    @Published var chaptersTextView = false
     
     //Variables for reading the book
     @Published var currentText = ""

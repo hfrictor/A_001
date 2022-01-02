@@ -20,23 +20,23 @@ struct BarGraph: View {
                 
                 Spacer()
                 
-                Menu {
-                    
-                    Button("Month"){}
-                    Button("Year"){}
-                    Button("Day"){}
-                    
-                } label: {
-                    HStack(spacing: 4){
-                        
-                        Text("this week")
-                        
-                        Image(systemName: "arrowtriangle.down.fill")
-                            .scaleEffect(0.7)
-                    }
-                    .font(.system(size: 14, weight: .bold))
-                    .foregroundColor(.gray)
-                }
+//                Menu {
+//
+//                    Button("Month"){}
+//                    Button("Year"){}
+//                    Button("Day"){}
+//
+//                } label: {
+//                    HStack(spacing: 4){
+//
+//                        Text("this week")
+//
+//                        Image(systemName: "arrowtriangle.down.fill")
+//                            .scaleEffect(0.7)
+//                    }
+//                    .font(.system(size: 14, weight: .bold))
+//                    .foregroundColor(.gray)
+//                }
 
             }
             
@@ -46,7 +46,7 @@ struct BarGraph: View {
                     .fill(Color("LightBlue"))
                     .frame(width: 20, height: 8)
                 
-                Text("Downloads")
+                Text("Most Recent")
                     .font(.system(size: 14, weight: .bold))
                     .foregroundColor(.gray)
             }

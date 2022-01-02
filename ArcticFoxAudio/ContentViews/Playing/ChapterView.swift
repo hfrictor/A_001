@@ -20,57 +20,73 @@ struct ChapterView: View {
     @Namespace var animation
     
     var body: some View {
-        VStack{
-            Miniplayer(animation: animation, expand: $expand, playingImage: $playingImage).padding(.top, 1).background(.white)
-            Text("Chapters screen")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(.black)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading,15)
+        
+        if globalProfile.chaptersTextView == true {
             
-            ForEach(0..<playerProfile.chapters_text.count){ i in
+            HStack(spacing: 0){
                 
-                    ZStack(alignment: .bottom){
-                        VStack(alignment: .center, content: {
-                                    HStack() {
-                                        Text("Chapter ")
-                                            .font(.title)
-                                            .fontWeight(.bold)
-                                            .foregroundColor(.black)
-                                        
-                                        Text(String(i+1))
-                                            .font(.title)
-                                            .fontWeight(.bold)
-                                            .foregroundColor(.black)
-                                        
-                                        Spacer()
-                                        
-                                        Image(systemName: "chevron.right")
-                                            .font(.title2)
-                                            .foregroundColor(.primary)
-                                    }.onAppear{
-                                        globalProfile.chapterIndex = globalProfile.chapterIndex+1
-                                    }
-                        }).onTapGesture {
-                            globalProfile.currentTextURL = playerProfile.chapters_text[i] as! String
-                            globalProfile.getText(someurl: globalProfile.currentTextURL)
-                            globalProfile.chapterIndex = i
+                SideTabView()
+                
+                // Main Content...
+                ScrollView(showsIndicators: false, content: {
+                    ReadingView()
+                })
+                           
+            }
+            
+        } else {
+            VStack{
+                Miniplayer(animation: animation, expand: $expand, playingImage: $playingImage).padding(.top, 1).background(.white)
+                Text("Chapters")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading,15)
+                
+                ForEach(0..<playerProfile.chapters_text.count){ i in
+                    
+                        ZStack(alignment: .bottom){
+                            VStack(alignment: .center, content: {
+                                        HStack() {
+                                            Text("Chapter ")
+                                                .font(.title)
+                                                .fontWeight(.bold)
+                                                .foregroundColor(.black)
+                                            
+                                            Text(String(i+1))
+                                                .font(.title)
+                                                .fontWeight(.bold)
+                                                .foregroundColor(.black)
+                                            
+                                            Spacer()
+                                            
+                                            Image(systemName: "chevron.right")
+                                                .font(.title2)
+                                                .foregroundColor(.primary)
+                                        }.onAppear{
+                                            globalProfile.chapterIndex = globalProfile.chapterIndex+1
+                                        }
+                            }).onTapGesture {
+                                globalProfile.currentTextURL = playerProfile.chapters_text[i] as! String
+                                globalProfile.getText(someurl: globalProfile.currentTextURL)
+                                globalProfile.chapterIndex = i
+                                globalProfile.chaptersTextView.toggle()
+                            }
                         }
-                    }
-                .padding()
-                .frame(height: 50)
+                    .padding()
+                    .frame(height: 50)
+                    
+                    Spacer()
+                }
                 
-                Spacer()
+                }.navigationBarTitle("")
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
+                .onDisappear{
+                    globalProfile.clickedGenre = "For You"
+                }
             }
-            
-            }.navigationBarTitle("")
-            .navigationBarHidden(true)
-            .navigationBarBackButtonHidden(true)
-            .onDisappear{
-                globalProfile.clickedGenre = "For You"
-            }
-            
            
         }
 }

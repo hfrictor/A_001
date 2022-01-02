@@ -280,10 +280,30 @@ struct HomeView: View {
                                     homecard in
                                     GeometryReader{proxy in
                                           HomeArt(homecard: homecard).aspectRatio(contentMode: .fill).onTapGesture {
-                                              globalProfile.playingImageURL = homecard.coverImage
-                                              globalProfile.playingTitle = homecard.title
-                                              playingImage = homecard.coverImage
-                                              expand.toggle()
+                                              if homecard.title != globalProfile.playingTitle {
+                                                  playerProfile.unsubscribeFromChanges()
+                                                  playerProfile.playbackStatus = .ended
+                                                  //SAPlayer.shared.clear()
+                                                  globalProfile.playingImageURL = homecard.coverImage
+                                                  globalProfile.playingTitle = homecard.title
+                                                  playerProfile.chapters_audio = homecard.chapterAudio
+                                                  playerProfile.chapters_text = homecard.chapterText
+                                                  playerProfile.current_chapter = 0
+                                                  playerProfile.playClicked()
+                                                  playerProfile.subscribeToChanges()
+                                                  playingImage = homecard.coverImage
+                                                  expand.toggle()
+                                              } else {
+                                                  globalProfile.playingImageURL = homecard.coverImage
+                                                  globalProfile.playingTitle = homecard.title
+                                                  playerProfile.chapters_audio = homecard.chapterAudio
+                                                  playerProfile.chapters_text = homecard.chapterText
+                                                  playerProfile.current_chapter = 0
+                                                  playerProfile.playClicked()
+                                                  playerProfile.subscribeToChanges()
+                                                  playingImage = homecard.coverImage
+                                                  expand.toggle()
+                                              }
                                           }.frame(width: proxy.frame(in: .global).width, height: 250)
                                               // based on index number were changing the corner style...
                                             .clipShape(CustomCorners(corners: [.topLeft,.bottomLeft,.topRight,.bottomRight], radius: 15))

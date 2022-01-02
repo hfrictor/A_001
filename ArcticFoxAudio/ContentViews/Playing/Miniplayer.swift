@@ -209,30 +209,30 @@ struct Miniplayer: View {
                         
                     }.padding()
                     
-                    HStack(spacing: 22){
-                        
-                        Button(action: {}) {
-                            
-                            Image(systemName: "square.and.arrow.up")
-                                .font(.title2)
-                                .foregroundColor(.primary)
-                        }
-                        
-                        Button(action: {}) {
-                            
-                            Image(systemName: "airplayaudio")
-                                .font(.title2)
-                                .foregroundColor(.primary)
-                        }
-                        
-                        Button(action: {}) {
-                            
-                            Image(systemName: "list.bullet")
-                                .font(.title2)
-                                .foregroundColor(.primary)
-                        }
-                    }
-                    .padding(.bottom,safeArea?.bottom == 0 ? 0 : safeArea?.bottom)
+//                    HStack(spacing: 22){
+//
+//                        Button(action: {}) {
+//
+//                            Image(systemName: "square.and.arrow.up")
+//                                .font(.title2)
+//                                .foregroundColor(.primary)
+//                        }
+//
+//                        Button(action: {}) {
+//
+//                            Image(systemName: "airplayaudio")
+//                                .font(.title2)
+//                                .foregroundColor(.primary)
+//                        }
+//
+//                        Button(action: {}) {
+//
+//                            Image(systemName: "list.bullet")
+//                                .font(.title2)
+//                                .foregroundColor(.primary)
+//                        }
+//                    }
+//                    .padding(.bottom,safeArea?.bottom == 0 ? 0 : safeArea?.bottom)
                 }
                 // this will give strech effect...
                 .frame(height: expand ? nil : 0)
