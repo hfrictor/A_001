@@ -67,8 +67,8 @@ struct HomeView: View {
     var body: some View {
         
         let defaults = UserDefaults.standard
-        let firstnameSaved = defaults.string(forKey: "Firstname") ?? ""
-        let lastnameSaved = defaults.string(forKey: "Lastname") ?? ""
+        let firstnameSaved = defaults.string(forKey: "Firstname") ?? "H"
+        let lastnameSaved = defaults.string(forKey: "Lastname") ?? "i"
         let emailSaved = defaults.string(forKey: "Email") ?? ""
         
         if globalProfile.currentTab == "safari.fill" {
