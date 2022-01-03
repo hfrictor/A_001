@@ -23,6 +23,7 @@ class PlayerProfile: ObservableObject {
     @Published var current_chapter = 0
     @Published var current_time = "00:00"
     @Published var current_book = ""
+    @Published var current_code = ""
     
     @Published var exitView: Bool = false
     

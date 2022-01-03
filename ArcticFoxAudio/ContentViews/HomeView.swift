@@ -12,6 +12,7 @@ import SwiftAudioPlayer
 
 let globalProfile = GlobalProfile()
 let authProfile = AuthProfile()
+let playerProfile = PlayerProfile()
 let emailSaved = UserDefaults.standard.string(forKey: "Email") ?? ""
 
 struct HomeCard : Hashable {
@@ -61,6 +62,9 @@ struct ChapterCard : Hashable {
 
 
 
+
+
+
 struct HomeView: View {
     
     // Search Text...
@@ -77,6 +81,44 @@ struct HomeView: View {
     @State var playingImage = "https://firebasestorage.googleapis.com/v0/b/arcticfoxaudio-dev.appspot.com/o/Untitled%20design-41.png?alt=media&token=6898b01a-4aae-4921-96f9-0b2f1f23f244"
     @Namespace var animation
 
+    
+    
+    
+    func createListened() {
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>")
+        print(authProfile.email)
+        print(playerProfile.current_code)
+        //Firestore Architecture for Making the book collection tht the user is currently listening to.
+        let listenData: [String: Any] = [
+            "listenCode" : playerProfile.current_code,
+            "listenChapter" : playerProfile.current_chapter,
+            "elapsedTime" : playerProfile.elapsedId,
+            "totalTime" : playerProfile.durationId,
+            "finishedChapters" : globalProfile.finishedChapters,
+            "unfinishedChapters" : globalProfile.unfinishedChapters,
+            "currentChapterText" : globalProfile.currentText
+            
+        ]
+        
+        let db = Firestore.firestore()
+        let listenRef = db.collection("Users").document(authProfile.email).collection("CurrentBooks").document(playerProfile.current_code)
+                    listenRef.setData(listenData) { error in
+                        if let error = error {
+                            print("Error writing document: \(error)")
+                        } else {
+                            print("Listened book created.")
+                        }
+                        
+                    }
+        DispatchQueue.main.async {
+            print("Book added to listened successfully.")
+        }
+    }
+
+
+    
+    
+    
  
     var body: some View {
         
@@ -224,20 +266,24 @@ struct HomeView: View {
                                                         globalProfile.playingTitle = recentcard.title
                                                         playerProfile.chapters_audio = recentcard.chapterAudio
                                                         playerProfile.chapters_text = recentcard.chapterText
+                                                        playerProfile.current_code = recentcard.afhCode
                                                         playerProfile.current_chapter = 0
                                                         playerProfile.playClicked()
                                                         playerProfile.subscribeToChanges()
                                                         playingImage = recentcard.coverImage
+                                                        createListened()
                                                         expand.toggle()
                                                     } else {
                                                         globalProfile.playingImageURL = recentcard.coverImage
                                                         globalProfile.playingTitle = recentcard.title
                                                         playerProfile.chapters_audio = recentcard.chapterAudio
                                                         playerProfile.chapters_text = recentcard.chapterText
+                                                        playerProfile.current_code = recentcard.afhCode
                                                         playerProfile.current_chapter = 0
                                                         playerProfile.playClicked()
                                                         playerProfile.subscribeToChanges()
                                                         playingImage = recentcard.coverImage
+                                                        createListened()
                                                         expand.toggle()
                                                     }
                                                 }.frame(width: proxy.frame(in: .global).width)
@@ -304,20 +350,24 @@ struct HomeView: View {
                                                   globalProfile.playingTitle = homecard.title
                                                   playerProfile.chapters_audio = homecard.chapterAudio
                                                   playerProfile.chapters_text = homecard.chapterText
+                                                  playerProfile.current_code = homecard.afhCode
                                                   playerProfile.current_chapter = 0
                                                   playerProfile.playClicked()
                                                   playerProfile.subscribeToChanges()
                                                   playingImage = homecard.coverImage
+                                                  createListened()
                                                   expand.toggle()
                                               } else {
                                                   globalProfile.playingImageURL = homecard.coverImage
                                                   globalProfile.playingTitle = homecard.title
                                                   playerProfile.chapters_audio = homecard.chapterAudio
                                                   playerProfile.chapters_text = homecard.chapterText
+                                                  playerProfile.current_code = homecard.afhCode
                                                   playerProfile.current_chapter = 0
                                                   playerProfile.playClicked()
                                                   playerProfile.subscribeToChanges()
                                                   playingImage = homecard.coverImage
+                                                  createListened()
                                                   expand.toggle()
                                               }
                                           }.frame(width: proxy.frame(in: .global).width, height: 250)

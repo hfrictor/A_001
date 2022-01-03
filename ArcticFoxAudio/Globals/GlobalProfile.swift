@@ -9,7 +9,10 @@ import Foundation
 import SwiftUI
 import Firebase
 
+
 class GlobalProfile: ObservableObject {
+    
+    //@EnvironmentObject var playerProfile: PlayerProfile
     
     @Published var searchText = ""
     @Published var search = false
@@ -36,6 +39,15 @@ class GlobalProfile: ObservableObject {
     @Published var browseAuthor = ""
     @Published var browseDescription = ""
     @Published var browseCode = ""
+    
+    //Variables for saving the state of a book that they are listening to
+    @Published var listenCode = ""
+    @Published var listenChapter = 0
+    @Published var elapsedTime = 0.00
+    @Published var totalTime = 0.00
+    @Published var finishedChapters = []
+    @Published var unfinishedChapters = []
+    @Published var currentChapterText = ""
 
     @Published var homeCard = [HomeCard]()
     @Published var recentCard = [RecentCard]()
@@ -207,6 +219,10 @@ class GlobalProfile: ObservableObject {
         }
     }
     
+    
+    func savePosition() {
+        
+    }
     
     
     func getText(someurl: String) {
